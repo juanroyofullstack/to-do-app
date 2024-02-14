@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-// interface WelcomeFormInterface {
-//     name: string;
-//     projectname: string;
-// }
+interface WelcomeFormInterface {
+    name: string;
+    projectname: string;
+}
 
 export const InscriptionForm = () => {
 
