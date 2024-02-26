@@ -1,9 +1,9 @@
 import './InscriptionForm.scss'
 
-import React, { useState } from 'react'
+import React, { useState, createContext } from 'react'
 import { useDispatch } from "react-redux"
 
-import { addTask } from '../store/actionCreators'
+import { addProject } from '../store/actionCreators'
 
 interface WelcomeFormInterface {
     name: string;
@@ -17,14 +17,17 @@ export const InscriptionForm = (): JSX.Element => {
        projectname: ''
       })
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const {name, value} = e.target;
         setFormData(prevData => ({...prevData, [name]: value}))
       }
-      const submitForm = () => {
-        dispatch(addTask({title: 'asf', body: 'asfafa'}))
-        return formData
-      }
+
+    const submitForm = (e: React.SyntheticEvent): CreateAction => {
+      e.preventDefault()
+      createContext({ projectCreated: true})
+      return dispatch(addProject(formData))
+    }
+
     return (
       <div className="InscriptionForm">
         <form onSubmit={submitForm}>

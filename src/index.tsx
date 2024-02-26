@@ -3,16 +3,11 @@ import './index.css'
 import React from 'react'
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux"
-import { applyMiddleware, createStore, Store } from "redux"
-import { thunk } from "redux-thunk"
 
 import App from './App'
-import reducer from "./store/reducer"
+import {store} from "./store/index"
 
-const store = createStore(reducer, applyMiddleware(thunk))
-
-const rootElement = document.getElementById('root')
-
+  const rootElement = document.getElementById('root')
 ReactDOM.render(
     <React.StrictMode>
       <Provider store={store}>

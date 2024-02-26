@@ -17,33 +17,30 @@ const initialState: TasksState = {
   ],
 }
 
-const reducer = (
-    state: TasksState = initialState,
+export const taskReducer = (
+    state = initialState,
     action: TaskAction
-  ): TasksState => {
+  ) => {
     switch (action.type) {
       case actionTypes.ADD_TASK: {
-        const newTask: ITasks = {
-          id: Math.random(), // not really unique
-          title: action.task.title,
-          body: action.task.body,
-        }
         return {
           ...state,
-          tasks: state.tasks.concat(newTask),
+          tasks: state.tasks.concat({
+            id: Math.random(), // not really unique
+            title: action.task.title,
+            body: action.task.body,
+          }),
         }
       }
       case actionTypes.REMOVE_TASK: {
-        const updatedTasks: ITasks[] = state.tasks.filter(
-          task => task.id !== action.task.id
-        )
         return {
           ...state,
-          tasks: updatedTasks
+          tasks:  state.tasks.filter(
+            task => task.id !== action.task.id
+          )
         }
       }
     }
     return state
   }
-  
-  export default reducer
+

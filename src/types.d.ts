@@ -1,7 +1,16 @@
-// interface ICreateProject {
-//     name: string;
-//     projectname: string;
-// }
+interface ICreateProject {
+    name: string;
+    projectname: string;
+}
+
+interface ProjectState {
+    project: ICreateProject;
+}
+
+type CreateAction = {
+    type: string;
+    project: ICreateProject;
+}
 
 interface ITasks {
     id?: number;
@@ -15,7 +24,7 @@ interface TasksState {
 
 type TaskAction = {
     type: string;
-    task: Task;
+    task: ITasks;
 }
 
 type DispatchType = (args: ITasks) => TaskAction
