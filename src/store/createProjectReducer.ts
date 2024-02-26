@@ -1,8 +1,11 @@
 import * as actionTypes from "./actionTypes"
 
 const initialState = {
+  project: {
     name: '',
     projectname: '',
+    created: false
+  }
 }
 
 export const createProjectReducer = (
@@ -13,9 +16,10 @@ export const createProjectReducer = (
       case actionTypes.CREATE_PROJECT: {
         return {
           ...state,
-          project: {
+         project: {
             name: action.project.name,
             projectname: action.project.projectname,
+            created: action.project.created
           },
         }
       }

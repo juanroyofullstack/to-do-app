@@ -1,6 +1,7 @@
 interface ICreateProject {
     name: string;
     projectname: string;
+    created: boolean;
 }
 
 interface ProjectState {

@@ -6,16 +6,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #FFE09F;
-  /* height: 100%;
-  width: 100%;
-  #root {
-    height: 100%;
-    width: 100%;
-  } */
+  display: flex;
 }
-html {
+#root {
   height: 100%;
   width: 100%;
+  display: flex;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

@@ -1,6 +1,6 @@
 import './InscriptionForm.scss'
 
-import React, { useState, createContext } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from "react-redux"
 
 import { addProject } from '../store/actionCreators'
@@ -24,8 +24,7 @@ export const InscriptionForm = (): JSX.Element => {
 
     const submitForm = (e: React.SyntheticEvent): CreateAction => {
       e.preventDefault()
-      createContext({ projectCreated: true})
-      return dispatch(addProject(formData))
+      return dispatch(addProject({...formData, created: true}))
     }
 
     return (

@@ -6,8 +6,8 @@ import { taskReducer } from './taskReducer'
 import { createProjectReducer } from './createProjectReducer'
 
 const rootReducer = combineReducers({
-    tasks: taskReducer,
-    project: createProjectReducer
+    tasksList: taskReducer,
+    projectData: createProjectReducer
 })
 
 declare global {
@@ -15,6 +15,8 @@ declare global {
       __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
     }
   }
+
+  export type RootState = ReturnType<typeof rootReducer>
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   /* @ts-ignore */
