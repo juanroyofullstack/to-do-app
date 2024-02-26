@@ -21,7 +21,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn lint && yarn typecheck"
+      "pre-commit": "npm run lint && npm run typecheck",
+      "pre-push": "npm run lint && npm run lint:fix && npm run typecheck"
     }
   },
   "eslintConfig": {
