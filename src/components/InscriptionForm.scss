@@ -1,0 +1,23 @@
+.InscriptionForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    form {
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 500px;
+
+        input, button {
+            border: 2px solid #eee;
+            border-radius:10px;
+            box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+            padding:10px;
+            width: 100%;
+        }
+    }
+}
