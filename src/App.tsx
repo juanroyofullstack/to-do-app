@@ -10,7 +10,7 @@ import type { RootState } from './store/index'
 import './App.css';
 
 function App() {
-const isProjectCreated = useSelector((state: RootState) => state.projectData.project.created)
+const isProjectCreated = useSelector((state: RootState) => state.project.created)
 
   return (
     <div className="App">

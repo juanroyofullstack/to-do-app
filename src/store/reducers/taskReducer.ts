@@ -1,7 +1,6 @@
-import * as actionTypes from "./actionTypes"
+import * as actionTypes from "../actionTypes"
 
-const initialState: TasksState = {
-  tasks: [
+const initialState: ITasks[] = [
     {
       id: 1,
       title: "post 1",
@@ -14,33 +13,25 @@ const initialState: TasksState = {
       body:
         "Harum quidem rerum facilis est et expedita distinctio quas molestias excepturi sint",
     },
-  ],
-}
+  ]
+
 
 export const taskReducer = (
-    state = initialState,
+    state: ITasks[] = initialState,
     action: TaskAction
   ) => {
     switch (action.type) {
-      case actionTypes.ADD_TASK: {
-        return {
-          ...state.tasks,
-          tasks: state.tasks.concat({
+      case actionTypes.ADD_TASK: 
+        return  state.concat({
             id: Math.random(), // not really unique
             title: action.task.title,
             body: action.task.body,
-          }),
-        }
-      }
-      case actionTypes.REMOVE_TASK: {
-        return {
-          ...state,
-          tasks: state.tasks.filter(
+          })
+      case actionTypes.REMOVE_TASK:
+        return state.filter(
             task => task.id !== action.task.id
           )
         }
-      }
-    }
     return state
   }
 

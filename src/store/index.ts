@@ -2,12 +2,12 @@ import { combineReducers } from 'redux'
 import { applyMiddleware, legacy_createStore as createStore, compose } from "redux"
 import { thunk } from "redux-thunk"
 
-import { taskReducer } from './taskReducer'
-import { createProjectReducer } from './createProjectReducer'
+import { taskReducer } from './reducers/taskReducer'
+import { createProjectReducer } from './reducers/createProjectReducer'
 
 const rootReducer = combineReducers({
-    tasksList: taskReducer,
-    projectData: createProjectReducer
+    tasks: taskReducer,
+    project: createProjectReducer
 })
 
 declare global {

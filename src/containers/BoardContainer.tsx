@@ -7,7 +7,7 @@ import { utils } from '../utils/index'
 import './BoardContainer.scss'
 
 export const BoardContainer: React.FC = (): JSX.Element => {
-    const { name, projectname } = useSelector((state: RootState) => state.projectData.project)
+    const { name, projectname } = useSelector((state: RootState) => state.project)
 
     const columns = utils['COLUMNS']
     return (
