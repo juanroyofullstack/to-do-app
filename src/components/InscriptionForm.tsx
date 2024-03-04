@@ -10,8 +10,9 @@ interface WelcomeFormInterface {
     projectname: string;
 }
 
-export const InscriptionForm = (): JSX.Element => {
+export const InscriptionForm: React.FC = (): JSX.Element => {
     const dispatch = useDispatch()
+
     const [formData, setFormData] = useState<WelcomeFormInterface>({
        name: '',
        projectname: ''
