@@ -12,3 +12,10 @@ export const COLUMNS = [
         title: 'approved' 
     }
 ]
+
+export enum ColumnNames {
+    TODO = 'toDo',
+    INPROGRESS = 'inProgress',
+    REVIEW = 'inReview',
+    APPROVED = 'Approved'
+}

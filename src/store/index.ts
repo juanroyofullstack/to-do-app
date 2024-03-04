@@ -2,11 +2,11 @@ import { combineReducers } from 'redux'
 import { applyMiddleware, legacy_createStore as createStore, compose } from "redux"
 import { thunk } from "redux-thunk"
 
-import { taskReducer } from './reducers/taskReducer'
+import { dataReducer } from './reducers/dataReducer'
 import { createProjectReducer } from './reducers/createProjectReducer'
 
 const rootReducer = combineReducers({
-    tasks: taskReducer,
+    data: dataReducer,
     project: createProjectReducer
 })
 

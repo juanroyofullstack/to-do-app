@@ -18,6 +18,7 @@ interface ITasks {
     id?: number;
     title: string;
     body: string;
+    column: string;
 }
 
 interface TasksState {
