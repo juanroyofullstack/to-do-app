@@ -1,21 +1,21 @@
 export const COLUMNS = [
     {
-        title: 'todo'
+        title: 'To Do',
     },
     {   
-        title: 'in progress'
+        title: 'In Progress',
     },
     { 
-        title: 'review' 
+        title: 'Review',
     },
     { 
-        title: 'approved' 
+        title: 'Approved',
     }
 ]
 
 export enum ColumnNames {
-    TODO = 'toDo',
-    INPROGRESS = 'inProgress',
-    REVIEW = 'inReview',
-    APPROVED = 'Approved'
+    toDo = 'toDo',
+    inProgress = 'inProgress',
+    inReview = 'inReview',
+    Approved = 'Approved'
 }

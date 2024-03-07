@@ -8,14 +8,14 @@ const initialState = {
       title: "post 1",
       body:
         "Quisque cursus, metus vitae pharetra Nam libero tempore, cum soluta nobis est eligendi",
-      column: ''
+      column: 'toDo'
     },
     {
       id: 2,
       title: "post 2",
       body:
         "Harum quidem rerum facilis est et expedita distinctio quas molestias excepturi sint",
-      column: ''
+      column: 'toDo'
     }
   ],
   inProgress: [ 
@@ -24,7 +24,7 @@ const initialState = {
       title: "post 1",
       body:
         "Quisque cursus, metus vitae pharetra Nam libero tempore, cum soluta nobis est eligendi",
-      column: ''
+      column: 'inProgress'
     }
   ],
   inReview: [ 
@@ -33,7 +33,7 @@ const initialState = {
       title: "post 1",
       body:
         "Quisque cursus, metus vitae pharetra Nam libero tempore, cum soluta nobis est eligendi",
-      column: ''
+      column: 'inReview'
     }
   ],
   Approved: [ 
@@ -42,7 +42,7 @@ const initialState = {
       title: "post 1",
       body:
         "Quisque cursus, metus vitae pharetra Nam libero tempore, cum soluta nobis est eligendi",
-      column: ''
+      column: 'Approved'
     }
   ]
 }
