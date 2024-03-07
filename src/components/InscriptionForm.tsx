@@ -31,7 +31,10 @@ export const InscriptionForm: React.FC = (): JSX.Element => {
     return (
       <div className="InscriptionForm">
         <form onSubmit={submitForm}>
+            <h1>Hi! enter your name and project name to start</h1>
+            <h2>Name</h2>
             <input name="name"  onChange={handleChange}/>
+            <h2>Project Name</h2>
             <input name="projectname"  onChange={handleChange}/>
             <button type="submit">Create Project</button>
           </form>
