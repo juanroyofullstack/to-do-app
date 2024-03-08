@@ -9,7 +9,7 @@ interface ProjectState {
     project: ICreateProject;
 }
 
-type CreateAction = {
+interface CreateAction {
     type: string;
     project: ICreateProject;
 }
@@ -25,9 +25,16 @@ interface TasksState {
     tasks: ITasks[];
 }
 
-type TaskAction = {
+interface TaskAction {
     type: string;
     task: ITasks;
+}
+
+interface DataStateInitial {
+    toDo: ITasks[];
+    inProgress: ITasks[];
+    inReview: ITasks[];
+    Approved: ITasks[];
 }
 
 type DispatchType = (args: ITasks) => TaskAction

@@ -1,7 +1,7 @@
 import * as actionTypes from "../actionTypes";
 import { ColumnNames } from '../../utils/index';
 
-const initialState = {
+const initialState: DataStateInitial = {
     toDo: [
         {
             id: 1,
