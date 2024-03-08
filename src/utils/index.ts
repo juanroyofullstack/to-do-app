@@ -1,2 +1,2 @@
-export * from './utils'
-export * from './getColumnData'
+export * from './utils';
+export * from './getColumnData';

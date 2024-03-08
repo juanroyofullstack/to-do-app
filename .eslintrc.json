@@ -37,7 +37,12 @@
       "simple-import-sort/sort": "off",
       "no-console": "warn",
       "sort-keys": "off",
-      "sort-imports": "off"
+      "sort-imports": "off",
+      "consistent-return": 2,
+      "indent": [1, 4],
+      "no-else-return": 1,
+      "semi": [1, "always"],
+      "space-unary-ops": 2
     },
     "env": {
       "browser": true,
