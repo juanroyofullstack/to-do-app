@@ -70,7 +70,10 @@ export const dataReducer = (
     }
     case actionTypes.REMOVE_TASK: {
         const column = action.task.column;
-        return state[column as ColumnNames].filter(i => i !== action.task);
+        return {
+            ...state,
+            [column as ColumnNames]: state[column as ColumnNames].filter(i => i.id !== action.task.id)
+        };
     }
     }
     return state;

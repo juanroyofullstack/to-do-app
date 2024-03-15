@@ -11,7 +11,7 @@ export const TaskColumn = ({ data, identifier }: { data: ITasks[]; identifier: s
         <h2>{title}</h2>
         <div className={'Column-box'}>
             {data.map((task, i) => {
-                return (<TaskComponent key={i} title={task.title} body={task.body} />);
+                return (<TaskComponent key={i} task={task} />);
             })}
             <CreateTask column={identifier} />
         </div>

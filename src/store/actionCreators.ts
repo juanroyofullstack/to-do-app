@@ -14,7 +14,7 @@ export function addProject(project: ICreateProject): CreateAction {
     };
 }
 
-export function removeArticle(task: ITasks): TaskAction {
+export function removeTask(task: ITasks): TaskAction {
     return {
         type: actionTypes.REMOVE_TASK,
         task,
