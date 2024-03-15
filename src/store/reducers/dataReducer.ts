@@ -55,12 +55,18 @@ export const dataReducer = (
     switch (action.type) {
     case actionTypes.ADD_TASK: {
         const column = action.task.column;
-        return state[column as ColumnNames].concat({
-            id: Math.random(),
-            title: action.task.title,
-            body: action.task.body,
-            column: action.task.column
-        });
+        return { 
+            ...state,
+            [column as ColumnNames]: [
+                ...state[column as ColumnNames],
+                {
+                    id: Math.random(),
+                    title: action.task.title,
+                    body: action.task.body,
+                    column: action.task.column
+                }
+            ]
+        };
     }
     case actionTypes.REMOVE_TASK: {
         const column = action.task.column;

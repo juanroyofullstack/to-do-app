@@ -1,6 +1,7 @@
 import React from 'react';
 import { COLUMNS, ColumnNames } from './../utils/index';
 import { TaskComponent } from './TaskComponent';
+import  { CreateTask } from './CreateTask';
 import './TaskColumn.scss';
 
 export const TaskColumn = ({ data, identifier }: { data: ITasks[]; identifier: string }): JSX.Element => {
@@ -12,6 +13,7 @@ export const TaskColumn = ({ data, identifier }: { data: ITasks[]; identifier: s
             {data.map((task, i) => {
                 return (<TaskComponent key={i} title={task.title} body={task.body} />);
             })}
+            <CreateTask column={identifier} />
         </div>
     </div>;
 };
