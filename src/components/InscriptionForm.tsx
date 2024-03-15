@@ -9,33 +9,73 @@ interface WelcomeFormInterface {
     name: string;
     projectname: string;
 }
+interface FormErrorInterface {
+    name?: string;
+    projectname?: string;
+    isValid: boolean;
+}
+type Touched = Partial<Record<keyof WelcomeFormInterface, boolean>>
 
 export const InscriptionForm: React.FC = (): JSX.Element => {
-    const dispatch = useDispatch();
-
     const [formData, setFormData] = useState<WelcomeFormInterface>({
         name: '',
         projectname: ''
     });
+    const [errors, setErrors] = useState<FormErrorInterface>({
+        name: '',
+        projectname: '',
+        isValid: false,
+    });
+    
+    const dispatch = useDispatch();
+
+    const validateForm = () => {
+        let isValid = true;
+        const newErrors: FormErrorInterface = {
+            name: '',
+            projectname: '',
+            isValid: false
+        };
+    
+        if (!formData.name) {
+            newErrors.name = "Name is required";
+            isValid = false;
+        }
+    
+        if (!formData.projectname) {
+            newErrors.projectname = "Project Name is required";
+            isValid = false;
+        }
+        
+        setErrors({...newErrors, isValid});
+        return isValid;
+    };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
+        validateForm();
         setFormData(prevData => ({...prevData, [name]: value}));
     };
 
-    const submitForm = (e: React.SyntheticEvent): CreateAction => {
+    const submitForm = (e: React.SyntheticEvent): CreateAction | void => {
         e.preventDefault();
-        return dispatch(addProject({...formData, created: true}));
+        if(validateForm()) {
+            return dispatch(addProject({...formData, created: true}));
+        } 
+        return undefined;
+              
     };
 
     return (
         <div className="InscriptionForm">
             <form onSubmit={submitForm}>
                 <h1>Hi! enter your name and project name to start</h1>
-                <h2>Name</h2>
-                <input name="name"  onChange={handleChange}/>
-                <h2>Project Name</h2>
-                <input name="projectname"  onChange={handleChange}/>
+                <label htmlFor="name">Name</label>
+                <input id="name" name="name"  onChange={handleChange}/>
+                {errors.name && <div className="error">{errors.name}</div>}
+                <label htmlFor="projectname">Project Name</label>
+                <input id="projectname" name="projectname"  onChange={handleChange}/>
+                {errors.projectname && <div className="error">{errors.projectname}</div>}
                 <button type="submit">Create Project</button>
             </form>
         </div>
