@@ -68,6 +68,16 @@ export const dataReducer = (
             ]
         };
     }
+    case actionTypes.MODIFY_TASK: {
+        const column = action.task.column;
+        return {
+            ...state,
+            [column as ColumnNames]: state[column as ColumnNames].map(
+                (task) => task.id === action.task.id ? action.task
+                    : task
+            )
+        };
+    }
     case actionTypes.REMOVE_TASK: {
         const column = action.task.column;
         return {

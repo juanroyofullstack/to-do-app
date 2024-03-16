@@ -7,10 +7,10 @@ export function addTask(task: ITasks): TaskAction {
     };
 }
 
-export function addProject(project: ICreateProject): CreateAction {
+export function editTask(task: ITasks): TaskAction {
     return {
-        type: actionTypes.CREATE_PROJECT,
-        project,
+        type: actionTypes.MODIFY_TASK,
+        task,
     };
 }
 
@@ -20,3 +20,11 @@ export function removeTask(task: ITasks): TaskAction {
         task,
     };
 }
+
+export function addProject(project: ICreateProject): CreateAction {
+    return {
+        type: actionTypes.CREATE_PROJECT,
+        project,
+    };
+}
+
