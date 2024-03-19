@@ -8,6 +8,7 @@ export const TaskComponent = ({ task }: {task: ITasks}) => {
     const { title, body } = taskData;
     
     const dispatch = useDispatch();
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { name, value } = e.target;
         setTaskData(prevData => ({...prevData, [name]: value}));
