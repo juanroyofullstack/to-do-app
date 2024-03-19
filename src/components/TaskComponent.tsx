@@ -5,7 +5,7 @@ import { editTask, removeTask } from '../store/actionCreators';
 export const TaskComponent = ({ task }: {task: ITasks}) => { 
     const [taskData, setTaskData] = useState<ITasks>(task);
     const [modifyState, setModifyState] = useState<boolean>(false);
-    const { title, body } = task;
+    const { title, body } = taskData;
     
     const dispatch = useDispatch();
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -25,20 +25,23 @@ export const TaskComponent = ({ task }: {task: ITasks}) => {
 
     return (
         <div>
-            <span>{title}</span>
-            <p>{body}</p>
-            {modifyState &&
-            <>
-                <form onSubmit={handleModifyTask}>
-                    <input defaultValue={title} name="title" onChange={handleChange}></input>
-                    <input defaultValue={body} name="body" onChange={handleChange}></input>
-                    <button type="submit">save</button>
-                    <button onClick={()=> {setModifyState(!modifyState);}}>cancel</button>
-                </form>
-            </>
+            {modifyState ?
+                <>
+                    <form onSubmit={handleModifyTask}>
+                        <input defaultValue={title} name="title" onChange={handleChange}></input>
+                        <input defaultValue={body} name="body" onChange={handleChange}></input>
+                        <button type="submit">save</button>
+                        <button onClick={handleDeleteTask}>delete</button>
+                        <button onClick={()=> {setModifyState(!modifyState);}}>cancel</button>
+                    </form>
+                </>
+                :             
+                <>
+                    <span>{title}</span>
+                    <p>{body}</p>
+                </>
             }
             <button onClick={()=> {setModifyState(true);}}>modify</button>
-            <button onClick={handleDeleteTask}>delete</button>
         </div>
     );
 };
