@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 
 import type { RootState } from '../store/index';
-import { editTask } from '../store/actionCreators';
+import { addTask, removeTask } from '../store/actionCreators';
 
 export const useDragAndDrop = () => {
 
@@ -11,7 +11,8 @@ export const useDragAndDrop = () => {
     const dispatch = useDispatch();
 
     const handleUpdateList = (task: ITasks, column: string): void => { 
-        dispatch(editTask({...task, column}));
+        dispatch(removeTask(task));
+        dispatch(addTask({...task, column}));
     };
     
     const handleDragging = (dragging: boolean) => setIsDragging(dragging);
