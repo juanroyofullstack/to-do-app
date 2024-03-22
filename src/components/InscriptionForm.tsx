@@ -14,7 +14,6 @@ interface FormErrorInterface {
     projectname?: string;
     isValid: boolean;
 }
-type Touched = Partial<Record<keyof WelcomeFormInterface, boolean>>
 
 export const InscriptionForm: React.FC = (): JSX.Element => {
     const [formData, setFormData] = useState<WelcomeFormInterface>({
@@ -53,7 +52,6 @@ export const InscriptionForm: React.FC = (): JSX.Element => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { name, value } = e.target;
-        validateForm();
         setFormData(prevData => ({...prevData, [name]: value}));
     };
 

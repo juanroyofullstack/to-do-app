@@ -1,7 +1,7 @@
 import React from 'react';
 import { COLUMNS, ColumnNames } from './../utils/index';
 import  { useDragAndDrop } from '../hooks/useDragAndDrop';
-import { TaskComponent } from './TaskComponent';
+import { TaskComponent } from './Task';
 import  { CreateTask } from './CreateTask';
 import './TaskColumn.scss';
 

@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-const CreatedProjectContext = React.createContext<[{ created: boolean }, React.Dispatch<React.SetStateAction<{ created: boolean }>>] | { created: boolean }>({ created: false });
+const CreatedProjectContext = React.createContext<[{ modifyState: boolean; taskData?: ITasks }, 
+    React.Dispatch<React.SetStateAction<{ modifyState: boolean; taskData?: ITasks }>>] | 
+    { modifyState: boolean; taskData?: ITasks }>({ modifyState: false, taskData: undefined });
 
 type Props = {
     children: string | JSX.Element | JSX.Element[];
@@ -18,8 +20,12 @@ function useAppContext () {
 }
 
 function AppCreatedProvider(props: Props) {
-    const [appState, setAppState] = React.useState<{ created: boolean }>({ created: false });
-    const value = React.useMemo<[{ created: boolean }, React.Dispatch<React.SetStateAction<{ created: boolean }>>]>(() => [appState, setAppState], [appState]);
+    const [appState, setAppState] = React.useState<{ modifyState: boolean; taskData?: ITasks }>
+    ({ modifyState: false, taskData: undefined });
+
+    const value = React.useMemo<[{ modifyState: boolean; taskData?: ITasks }, 
+        React.Dispatch<React.SetStateAction<{ modifyState: boolean; taskData?: ITasks }>>]>(
+            () => [appState, setAppState], [appState]);
 
     return (<CreatedProjectContext.Provider value={value} {...props} />);
 }

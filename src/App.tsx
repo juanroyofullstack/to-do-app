@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { InscriptionForm } from './components/InscriptionForm';
 import { BoardContainer } from './containers/BoardContainer';
 import type { RootState } from './store/index';
-
+import { AppCreatedProvider } from './utils/getContext';
 import './App.css';
 
 function App(): JSX.Element {
@@ -14,9 +14,11 @@ function App(): JSX.Element {
 
     return (
         <div className="App" data-testid={"App"}>
-            { !isProjectCreated ?
-                <InscriptionForm />
-                : <BoardContainer /> }
+            <AppCreatedProvider>
+                { !isProjectCreated ?
+                    <InscriptionForm />
+                    : <BoardContainer /> }
+            </AppCreatedProvider>
         </div>
     );
 }
