@@ -12,7 +12,7 @@ export const createProjectReducer = (
     action: CreateAction
 ) => {
     switch (action.type) {
-    case actionTypes.CREATE_PROJECT: 
+    case actionTypes.CREATE_PROJECT:
         return {
             ...state,
             ...action.project

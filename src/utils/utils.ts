@@ -3,15 +3,15 @@ export const COLUMNS = {
         title: 'To Do',
         identifier: 'toDo'
     },
-    inProgress: {   
+    inProgress: {
         title: 'In Progress',
         identifier: 'inProgress'
     },
-    inReview: { 
+    inReview: {
         title: 'Review',
         identifier: 'inReview'
     },
-    Approved: { 
+    Approved: {
         title: 'Approved',
         identifier: 'Approved'
     }

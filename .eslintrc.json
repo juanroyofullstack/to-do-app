@@ -35,6 +35,8 @@
       "@typescript-eslint/interface-name-prefix": "off",
       "@typescript-eslint/camelcase": "warn",
       "simple-import-sort/sort": "off",
+      "no-trailing-spaces": "warn",
+      "comma-dangle": "warn",
       "no-console": "warn",
       "sort-keys": "off",
       "sort-imports": "off",

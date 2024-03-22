@@ -15,7 +15,7 @@ export const initialState: DataStateInitial = {
             column: 'toDo'
         }
     ],
-    inProgress: [ 
+    inProgress: [
         {
             id: 1,
             title: "post 1",
@@ -24,7 +24,7 @@ export const initialState: DataStateInitial = {
             column: 'inProgress'
         }
     ],
-    inReview: [ 
+    inReview: [
         {
             id: 1,
             title: "post 1",
@@ -33,7 +33,7 @@ export const initialState: DataStateInitial = {
             column: 'inReview'
         }
     ],
-    Approved: [ 
+    Approved: [
         {
             id: 1,
             title: "post 1",

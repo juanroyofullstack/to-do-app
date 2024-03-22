@@ -9,13 +9,14 @@ import { useAppContext } from '../utils/getContext';
 
 import './BoardContainer.scss';
 
-export const BoardContainer: React.FC = (): JSX.Element => {
+export const BoardContainer = (): JSX.Element => {
     const { name, projectname } = useSelector((state: RootState) => state.project);
     const selectData: DataStateInitial = useSelector((state: RootState) => state.data);
     const { handleDragging, isDragging } = useDragAndDrop();
-    const [appState, ] = useAppContext();
+    const [appState ] = useAppContext();
 
     const { modifyState } = appState;
+
     return (
         <div className={'BoardContainer'}>
             {modifyState && <TaskEditorModal />}
@@ -23,10 +24,10 @@ export const BoardContainer: React.FC = (): JSX.Element => {
             <h2>{projectname}</h2>
             <div className='BoardContainer-container'>
                 {Object.entries(selectData).map(([identifier, value]: [string, ITasks[]], i: number) => (
-                    <TaskContainer 
-                        key={i} 
+                    <TaskContainer
+                        key={i}
                         identifier={identifier}
-                        data={value} handleDragging={handleDragging} 
+                        data={value} handleDragging={handleDragging}
                         isDragging={isDragging}
                     />))}
             </div>

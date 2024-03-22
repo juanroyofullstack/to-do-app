@@ -1,14 +1,15 @@
 import React from 'react';
 import { useAppContext } from '../utils/getContext';
 
-interface TaskComponent { 
-    task: ITasks; 
+interface TaskInterface {
+    task: ITasks;
     handleDragging: (dragging: boolean) => void;
 }
 
-export const Task = ({ task, handleDragging }: TaskComponent) => { 
+export const Task = ({ task, handleDragging }: TaskInterface): JSX.Element => {
     const [, setAppState] = useAppContext();
     const { title, body } = task;
+
     const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
         e.dataTransfer.setData('task', JSON.stringify(task));
         handleDragging(true);
@@ -17,16 +18,16 @@ export const Task = ({ task, handleDragging }: TaskComponent) => {
     const handleDragEnd = () => handleDragging(false);
 
     return (
-        <div 
-            draggable 
+        <div
+            draggable
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
-        >           
+        >
             <>
                 <span>{title}</span>
                 <p>{body}</p>
             </>
-            
+
             <button onClick={()=> {setAppState({modifyState: true, taskData: task});}}>modify</button>
         </div>
     );

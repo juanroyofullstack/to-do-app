@@ -28,7 +28,7 @@ export const CreateTask = ({ column }: {column: string}): JSX.Element => {
     };
     return (
         <>
-            {didTheUserClicked ? 
+            {didTheUserClicked ?
                 <form onSubmit={submitForm} className="CreateTask">
                     <input name="title" placeholder="Your task title" onChange={handleChange}/>
                     <input name="body" placeholder="Write your task description here" onChange={handleChange} />

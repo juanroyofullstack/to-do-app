@@ -38,4 +38,3 @@ interface DataStateInitial {
 }
 
 type DispatchType = (args: ITasks) => TaskAction
-  

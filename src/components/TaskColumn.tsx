@@ -5,11 +5,11 @@ import { Task } from './Task';
 import  { CreateTask } from './CreateTask';
 import './TaskColumn.scss';
 
-interface TaskColumnProps { 
-    data: ITasks[]; 
-    identifier: string; 
+interface TaskColumnProps {
+    data: ITasks[];
+    identifier: string;
     isDragging: boolean;
-    handleDragging: (dragging: boolean) => void; 
+    handleDragging: (dragging: boolean) => void;
 }
 
 export const TaskContainer = ({ data, identifier, handleDragging }: TaskColumnProps): JSX.Element => {

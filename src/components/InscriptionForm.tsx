@@ -1,9 +1,9 @@
-import './InscriptionForm.scss';
-
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 
 import { addProject } from '../store/actionCreators';
+
+import './InscriptionForm.scss';
 
 interface WelcomeFormInterface {
     name: string;
@@ -15,7 +15,7 @@ interface FormErrorInterface {
     isValid: boolean;
 }
 
-export const InscriptionForm: React.FC = (): JSX.Element => {
+export const InscriptionForm = (): JSX.Element => {
     const [formData, setFormData] = useState<WelcomeFormInterface>({
         name: '',
         projectname: ''
@@ -23,9 +23,9 @@ export const InscriptionForm: React.FC = (): JSX.Element => {
     const [errors, setErrors] = useState<FormErrorInterface>({
         name: '',
         projectname: '',
-        isValid: false,
+        isValid: false
     });
-    
+
     const dispatch = useDispatch();
 
     const validateForm = () => {
@@ -35,17 +35,17 @@ export const InscriptionForm: React.FC = (): JSX.Element => {
             projectname: '',
             isValid: false
         };
-    
+
         if (!formData.name) {
             newErrors.name = "Name is required";
             isValid = false;
         }
-    
+
         if (!formData.projectname) {
             newErrors.projectname = "Project Name is required";
             isValid = false;
         }
-        
+
         setErrors({...newErrors, isValid});
         return isValid;
     };
@@ -59,9 +59,9 @@ export const InscriptionForm: React.FC = (): JSX.Element => {
         e.preventDefault();
         if(validateForm()) {
             return dispatch(addProject({...formData, created: true}));
-        } 
+        }
         return undefined;
-              
+
     };
 
     return (
