@@ -6,7 +6,7 @@ interface TaskComponent {
     handleDragging: (dragging: boolean) => void;
 }
 
-export const TaskComponent = ({ task, handleDragging }: TaskComponent) => { 
+export const Task = ({ task, handleDragging }: TaskComponent) => { 
     const [, setAppState] = useAppContext();
     const { title, body } = task;
     const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {

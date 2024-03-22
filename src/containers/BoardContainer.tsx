@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { TaskColumn } from '../components/TaskColumn';
+import { TaskContainer } from '../components/TaskColumn';
 import { TaskEditorModal } from '../components/TaskEditorModal';
 import  { useDragAndDrop } from '../hooks/useDragAndDrop';
 import type { RootState } from '../store/index';
@@ -23,7 +23,7 @@ export const BoardContainer: React.FC = (): JSX.Element => {
             <h2>{projectname}</h2>
             <div className='BoardContainer-container'>
                 {Object.entries(selectData).map(([identifier, value]: [string, ITasks[]], i: number) => (
-                    <TaskColumn 
+                    <TaskContainer 
                         key={i} 
                         identifier={identifier}
                         data={value} handleDragging={handleDragging} 

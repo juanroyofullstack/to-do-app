@@ -1,7 +1,7 @@
 import React from 'react';
 import { COLUMNS, ColumnNames } from './../utils/index';
 import  { useDragAndDrop } from '../hooks/useDragAndDrop';
-import { TaskComponent } from './Task';
+import { Task } from './Task';
 import  { CreateTask } from './CreateTask';
 import './TaskColumn.scss';
 
@@ -12,7 +12,7 @@ interface TaskColumnProps {
     handleDragging: (dragging: boolean) => void; 
 }
 
-export const TaskColumn = ({ data, identifier, handleDragging }: TaskColumnProps): JSX.Element => {
+export const TaskContainer = ({ data, identifier, handleDragging }: TaskColumnProps): JSX.Element => {
     const { title } = COLUMNS[identifier as ColumnNames];
     const { handleUpdateList } = useDragAndDrop();
 
@@ -25,14 +25,14 @@ export const TaskColumn = ({ data, identifier, handleDragging }: TaskColumnProps
 
     const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => e.preventDefault();
 
-    return <div className={`Column Column-${title}`} onDrop={handleDrop} onDragOver={handleDragOver}
-    >
-        <h2>{title}</h2>
-        <div className={'Column-box'}>
-            {data.map((task, i) => {
-                return (<TaskComponent key={i} task={task} handleDragging={handleDragging} />);
-            })}
-            <CreateTask column={identifier} />
-        </div>
-    </div>;
+    return (
+        <div className={`Column Column-${title}`} onDrop={handleDrop} onDragOver={handleDragOver}>
+            <h2>{title}</h2>
+            <div className={'Column-box'}>
+                {data.map((task, i) => {
+                    return (<Task key={i} task={task} handleDragging={handleDragging} />);
+                })}
+                <CreateTask column={identifier} />
+            </div>
+        </div>);
 };
