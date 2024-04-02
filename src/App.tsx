@@ -1,12 +1,18 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 
-import { InscriptionForm } from './components/InscriptionForm';
+// import { InscriptionForm } from './components/InscriptionForm';
 import { BoardContainer } from './containers/BoardContainer';
 import type { RootState } from './store/index';
 import { AppCreatedProvider } from './utils/getContext';
 
 import './App.css';
+
+const InscriptionFormLazyLoaded = React.lazy(() =>
+  import('./components/InscriptionForm').then((module) => ({
+      default: module.InscriptionForm
+  }))
+);
 
 function App(): JSX.Element {
     const isProjectCreated = useSelector((state: RootState) => state.project.created);
@@ -15,7 +21,9 @@ function App(): JSX.Element {
         <div className="App" data-testid={"App"}>
             <AppCreatedProvider>
                 { !isProjectCreated ?
-                    <InscriptionForm />
+                    <React.Suspense fallback={'Loading...'}>
+                        <InscriptionFormLazyLoaded />
+                    </React.Suspense>
                     : <BoardContainer /> }
             </AppCreatedProvider>
         </div>
