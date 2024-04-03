@@ -17,7 +17,7 @@ function App(): JSX.Element {
     const isProjectCreated = useSelector((state: RootState) => state.project.created);
 
     return (
-        <div className="App" data-testid={"App"}>
+        <div className="App flex" data-testid="App">
             <AppCreatedProvider>
                 { !isProjectCreated ?
                     <React.Suspense fallback={'Loading...'}>
