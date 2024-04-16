@@ -28,7 +28,7 @@ export const Task = ({ task, handleDragging }: TaskInterface): JSX.Element => {
                 <p>{body}</p>
             </>
 
-            <button onClick={()=> {setAppState({modifyState: true, taskData: task});}}>modify</button>
+            <button onClick={()=> {setAppState({modifyState: true, taskData: task});}}>Modify</button>
         </div>
     );
 };

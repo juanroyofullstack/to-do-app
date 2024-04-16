@@ -18,10 +18,12 @@ export const BoardContainer = (): JSX.Element => {
     const { modifyState } = appState;
 
     return (
-        <div className='BoardContainer flex'>
+        <div className='BoardContainer flex p-2'>
             {modifyState && <TaskEditorModal />}
-            <h1>Welcome {name}</h1>
-            <h2>{projectname}</h2>
+            <div className="p-2">
+                <h1 className="text-xl">Welcome {name}</h1>
+                <h2 className="text-lg">{projectname}</h2>
+            </div>
             <div className='BoardContainer-container flex'>
                 {Object.entries(selectData).map(([identifier, value]: [string, ITasks[]], i: number) => (
                     <TaskContainer

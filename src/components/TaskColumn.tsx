@@ -26,9 +26,9 @@ export const TaskContainer = ({ data, identifier, handleDragging }: TaskColumnPr
     const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => e.preventDefault();
 
     return (
-        <div className={`Column Column-${title}`} onDrop={handleDrop} onDragOver={handleDragOver}>
+        <div className={`Column Column-${title} p-2`} onDrop={handleDrop} onDragOver={handleDragOver}>
             <h2>{title}</h2>
-            <div className={'Column-box'}>
+            <div className='Column-box border-2 rounded-md p-2 border-indigo-500'>
                 {data.map((task, i) => {
                     return (<Task key={i} task={task} handleDragging={handleDragging} />);
                 })}
