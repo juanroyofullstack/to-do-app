@@ -16,8 +16,8 @@ export const CreateTask = ({ column }: {column: string}): JSX.Element => {
 
     const dispatch = useDispatch();
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const {name, value} = e.target;
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+        const { name, value } = e.target;
         setFormData((prevData: CreateTaskInterface) => ({...prevData, [name]: value}));
     };
 
@@ -26,18 +26,20 @@ export const CreateTask = ({ column }: {column: string}): JSX.Element => {
         setDidTheUserClicked(!didTheUserClicked);
         return dispatch(addTask({...formData, column: column}));
     };
+
     return (
         <>
             {didTheUserClicked ?
                 <form onSubmit={submitForm} className="CreateTask">
                     <input name="title" placeholder="Your task title" onChange={handleChange}/>
-                    <input name="body" placeholder="Write your task description here" onChange={handleChange} />
+                    <textarea name="body" placeholder="Write your task description here" onChange={handleChange} />
                     <button type="submit">Create Task</button>
+                    <button onClick={() => setDidTheUserClicked(prevValue => !prevValue)}>Cancel</button>
                 </form>
                 :
-                <div className='AddButton' onClick={() => setDidTheUserClicked(!didTheUserClicked)}>
-                click here to add a task
-                </div>
+                <button className='AddButton hover:bg-gray-200 text-black font-bold py-2 px-2 mt-4 rounded' onClick={() => setDidTheUserClicked(!didTheUserClicked)}>
+                Click here to add a task
+                </button>
             }
         </>
     );

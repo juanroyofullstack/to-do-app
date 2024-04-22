@@ -23,12 +23,9 @@ export const Task = ({ task, handleDragging }: TaskInterface): JSX.Element => {
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
         >
-            <>
-                <span>{title}</span>
-                <p>{body}</p>
-            </>
-
-            <button onClick={()=> {setAppState({modifyState: true, taskData: task});}}>Modify</button>
+            <h3 className='font-normal'>{title}</h3>
+            <p className='font-normal'>{body}</p>
+            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 mt-2 rounded' onClick={()=> {setAppState({modifyState: true, taskData: task});}}>Modify</button>
         </div>
     );
 };
