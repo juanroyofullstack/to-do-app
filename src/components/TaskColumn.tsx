@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { COLUMNS, ColumnNames } from './../utils/index';
 import  { useDragAndDrop } from '../hooks/useDragAndDrop';
-import { Task } from './Task';
 import  { CreateTask } from './CreateTask';
+import { Task } from './Task';
 import './TaskColumn.scss';
 
 interface TaskColumnProps {
@@ -16,7 +17,7 @@ export const TaskContainer = ({ data, identifier, handleDragging }: TaskColumnPr
     const { title } = COLUMNS[identifier as ColumnNames];
     const { handleUpdateList } = useDragAndDrop();
 
-    const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    const handleDrop = (e: React.DragEvent<HTMLDivElement>): void => {
         e.preventDefault();
         const task = JSON.parse(e.dataTransfer.getData('task'));
         handleUpdateList(task, identifier);

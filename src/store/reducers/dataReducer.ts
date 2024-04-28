@@ -9,42 +9,11 @@ const initialState: DataStateInitial = {
             body:
         "Quisque cursus, metus vitae pharetra Nam libero tempore, cum soluta nobis est eligendi",
             column: 'toDo'
-        },
-        {
-            id: 2,
-            title: "post 2",
-            body:
-        "Harum quidem rerum facilis est et expedita distinctio quas molestias excepturi sint",
-            column: 'toDo'
         }
     ],
-    inProgress: [
-        {
-            id: 1,
-            title: "post 1",
-            body:
-        "Quisque cursus, metus vitae pharetra Nam libero tempore, cum soluta nobis est eligendi",
-            column: 'inProgress'
-        }
-    ],
-    inReview: [
-        {
-            id: 1,
-            title: "post 1",
-            body:
-        "Quisque cursus, metus vitae pharetra Nam libero tempore, cum soluta nobis est eligendi",
-            column: 'inReview'
-        }
-    ],
-    Approved: [
-        {
-            id: 1,
-            title: "post 1",
-            body:
-        "Quisque cursus, metus vitae pharetra Nam libero tempore, cum soluta nobis est eligendi",
-            column: 'Approved'
-        }
-    ]
+    inProgress: [],
+    inReview: [],
+    Approved: []
 };
 
 
@@ -54,35 +23,35 @@ export const dataReducer = (
 ) => {
     switch (action.type) {
     case actionTypes.ADD_TASK: {
-        const column = action.task.column;
+        const { payload } = action;
         return {
             ...state,
-            [column as ColumnNames]: [
-                ...state[column as ColumnNames],
+            [payload.column as ColumnNames]: [
+                ...state[payload.column as ColumnNames],
                 {
                     id: Math.random(),
-                    title: action.task.title,
-                    body: action.task.body,
-                    column: action.task.column
+                    title: payload.title,
+                    body: payload.body,
+                    column: payload.column
                 }
             ]
         };
     }
     case actionTypes.MODIFY_TASK: {
-        const column = action.task.column;
+        const { payload } = action;
         return {
             ...state,
-            [column as ColumnNames]: state[column as ColumnNames].map(
-                (task) => task.id === action.task.id ? action.task
+            [payload.column as ColumnNames]: state[payload.column as ColumnNames].map(
+                (task) => task.id === payload.id ? payload
                     : task
             )
         };
     }
     case actionTypes.REMOVE_TASK: {
-        const column = action.task.column;
+        const { payload } = action;
         return {
             ...state,
-            [column as ColumnNames]: state[column as ColumnNames].filter(i => i.id !== action.task.id)
+            [payload.column as ColumnNames]: state[payload.column as ColumnNames].filter(i => i.id !== payload.id)
         };
     }
     }

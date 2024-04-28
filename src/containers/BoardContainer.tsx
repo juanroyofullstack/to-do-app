@@ -5,15 +5,15 @@ import { TaskContainer } from '../components/TaskColumn';
 import { TaskEditorModal } from '../components/TaskEditorModal';
 import  { useDragAndDrop } from '../hooks/useDragAndDrop';
 import type { RootState } from '../store/index';
-import { useAppContext } from '../utils/getContext';
+import { useModifyContext } from '../utils/getContext';
 
 import './BoardContainer.scss';
 
 export const BoardContainer = (): JSX.Element => {
-    const { name, projectname } = useSelector((state: RootState) => state.project);
+    const { name, projectName } = useSelector((state: RootState) => state.project);
     const selectData: DataStateInitial = useSelector((state: RootState) => state.data);
     const { handleDragging, isDragging } = useDragAndDrop();
-    const [appState ] = useAppContext();
+    const [appState ] = useModifyContext();
 
     const { modifyState } = appState;
 
@@ -22,7 +22,7 @@ export const BoardContainer = (): JSX.Element => {
             {modifyState && <TaskEditorModal />}
             <div className="p-2">
                 <h1 className="text-4xl font-medium">Welcome {name}</h1>
-                <h2 className="text-2xl font-medium">{projectname}</h2>
+                <h2 className="text-2xl font-medium">{projectName}</h2>
             </div>
             <div className='BoardContainer-container flex'>
                 {Object.entries(selectData).map(([identifier, value]: [string, ITasks[]], i: number) => (

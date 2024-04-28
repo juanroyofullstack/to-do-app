@@ -2,7 +2,7 @@ import * as actionTypes from "../actionTypes";
 
 const initialState: ICreateProject = {
     name: '',
-    projectname: '',
+    projectName: '',
     created: false
 };
 
@@ -15,7 +15,7 @@ export const createProjectReducer = (
     case actionTypes.CREATE_PROJECT:
         return {
             ...state,
-            ...action.project
+            ...action.payload
         };
     }
     return state;

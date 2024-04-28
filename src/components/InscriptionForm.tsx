@@ -7,22 +7,22 @@ import './InscriptionForm.scss';
 
 interface WelcomeFormInterface {
     name: string;
-    projectname: string;
+    projectName: string;
 }
 interface FormErrorInterface {
     name?: string;
-    projectname?: string;
+    projectName?: string;
     isValid: boolean;
 }
 
 export const InscriptionForm = (): JSX.Element => {
     const [formData, setFormData] = useState<WelcomeFormInterface>({
         name: '',
-        projectname: ''
+        projectName: ''
     });
     const [errors, setErrors] = useState<FormErrorInterface>({
         name: '',
-        projectname: '',
+        projectName: '',
         isValid: false
     });
 
@@ -32,7 +32,7 @@ export const InscriptionForm = (): JSX.Element => {
         let isValid = true;
         const newErrors: FormErrorInterface = {
             name: '',
-            projectname: '',
+            projectName: '',
             isValid: false
         };
 
@@ -41,8 +41,8 @@ export const InscriptionForm = (): JSX.Element => {
             isValid = false;
         }
 
-        if (!formData.projectname) {
-            newErrors.projectname = "Project Name is required";
+        if (!formData.projectName) {
+            newErrors.projectName = "Project Name is required";
             isValid = false;
         }
 
@@ -61,7 +61,6 @@ export const InscriptionForm = (): JSX.Element => {
             return dispatch(addProject({...formData, created: true}));
         }
         return undefined;
-
     };
 
     return (
@@ -69,11 +68,17 @@ export const InscriptionForm = (): JSX.Element => {
             <form onSubmit={submitForm}>
                 <h1>Hi! enter your name and project name to start</h1>
                 <label htmlFor="name">Name</label>
-                <input id="name" name="name"  onChange={handleChange}/>
-                {errors.name && <div className="error">{errors.name}</div>}
-                <label htmlFor="projectname">Project Name</label>
-                <input id="projectname" name="projectname"  onChange={handleChange}/>
-                {errors.projectname && <div className="error">{errors.projectname}</div>}
+                <input id="name" name="name" onChange={handleChange}/>
+
+                {errors.name &&
+                <div className="error">{errors.name}</div>}
+
+                <label htmlFor="projectName">Project Name</label>
+                <input id="projectName" name="projectName"  onChange={handleChange}/>
+
+                {errors.projectName &&
+                <div className="error">{errors.projectName}</div>}
+
                 <button type="submit">Create Project</button>
             </form>
         </div>

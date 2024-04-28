@@ -1,7 +1,7 @@
 
 interface ICreateProject {
     name: string;
-    projectname: string;
+    projectName: string;
     created: boolean;
 }
 
@@ -11,14 +11,14 @@ interface ProjectState {
 
 interface CreateAction {
     type: string;
-    project: ICreateProject;
+    payload: ICreateProject;
 }
 
 interface ITasks {
-    id?: number;
-    title: string;
-    body: string;
-    column: string;
+        id?: number;
+        title: string;
+        body: string;
+        column: string;
 }
 
 interface TasksState {
@@ -27,7 +27,7 @@ interface TasksState {
 
 interface TaskAction {
     type: string;
-    task: ITasks;
+    payload: ITasks;
 }
 
 interface DataStateInitial {

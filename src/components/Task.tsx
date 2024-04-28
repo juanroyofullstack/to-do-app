@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppContext } from '../utils/getContext';
+import { useModifyContext } from '../utils/getContext';
 
 interface TaskInterface {
     task: ITasks;
@@ -7,7 +7,7 @@ interface TaskInterface {
 }
 
 export const Task = ({ task, handleDragging }: TaskInterface): JSX.Element => {
-    const [, setAppState] = useAppContext();
+    const [, setAppState] = useModifyContext();
     const { title, body } = task;
 
     const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
