@@ -1,4 +1,4 @@
-import { COLUMNS, ColumnNames } from './utils';
+import { ColumnNames,COLUMNS } from './utils';
 
 interface ColumnData {
     column: string;

@@ -1,5 +1,5 @@
-import * as actionTypes from "../actionTypes";
 import { ColumnNames } from '../../utils/index';
+import * as actionTypes from "../actionTypes";
 
 const initialState: DataStateInitial = {
     toDo: [

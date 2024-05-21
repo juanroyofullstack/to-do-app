@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
+
 import { editTask, removeTask } from '../store/actionCreators';
 import { useModifyContext } from '../utils/getContext';
+
 import './TaskEditorModal.scss';
 
 export const TaskEditorModal = (): JSX.Element => {

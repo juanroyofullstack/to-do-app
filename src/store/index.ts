@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { applyMiddleware, legacy_createStore as createStore, compose } from "redux";
+import { applyMiddleware, compose,legacy_createStore as createStore } from "redux";
 import thunk from "redux-thunk";
 
-import { dataReducer } from './reducers/dataReducer';
 import { createProjectReducer } from './reducers/createProjectReducer';
+import { dataReducer } from './reducers/dataReducer';
 
 const rootReducer = combineReducers({
     data: dataReducer,

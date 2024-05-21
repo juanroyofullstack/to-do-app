@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import { render } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
+
 import { initialState } from './utils/index';
 import App from './App';
 
@@ -12,10 +13,10 @@ const store = mockStore({
 });
 
 test('renders learn react link', () => {
-    render(
+    const { container } = render(
         <Provider store={store}>
             <App />
         </Provider>);
-    const linkElement = screen.getByTestId(/App/i);
+    const linkElement = container.getByTestId(/App/i);
     expect(linkElement).toBeTruthy();
 });

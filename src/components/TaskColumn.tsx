@@ -1,9 +1,11 @@
 import React from 'react';
 
-import { COLUMNS, ColumnNames } from './../utils/index';
 import  { useDragAndDrop } from '../hooks/useDragAndDrop';
+
+import { ColumnNames,COLUMNS } from './../utils/index';
 import  { CreateTask } from './CreateTask';
 import { Task } from './Task';
+
 import './TaskColumn.scss';
 
 interface TaskColumnProps {

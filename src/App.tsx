@@ -8,9 +8,9 @@ import { AppCreatedProvider } from './utils/getContext';
 import './App.css';
 
 const InscriptionFormLazyLoaded = React.lazy(() =>
-  import('./components/InscriptionForm').then((module) => ({
-      default: module.InscriptionForm
-  }))
+    import('./components/InscriptionForm').then((module) => ({
+        default: module.InscriptionForm
+    }))
 );
 
 function App(): JSX.Element {
