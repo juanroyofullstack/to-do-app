@@ -20,7 +20,7 @@
     "typecheck": "tsc --noEmit --skipLibCheck",
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
     "lint:fix": "eslint --fix --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
-    "dev:tailwind": "tailwindcss -i src/styles/tailwind.css -o src/styles/index.css -w"
+    "dev:tailwind": "tailwindcss -i src/styles.css -o src/index.css -w"
   },
   "husky": {
     "hooks": {
