@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 
 import { addProject } from '../store/actionCreators';
 
+import { validateForm } from './../utils/index';
+
 import './InscriptionForm.scss';
 
-interface WelcomeFormInterface {
+export interface WelcomeFormInterface {
     name: string;
     projectName: string;
 }
-interface FormErrorInterface {
+
+export interface FormErrorInterface {
     name?: string;
     projectName?: string;
-    isValid: boolean;
+    isValid?: boolean;
 }
 
 export const InscriptionForm = (): JSX.Element => {
@@ -28,28 +31,6 @@ export const InscriptionForm = (): JSX.Element => {
 
     const dispatch = useDispatch();
 
-    const validateForm = () => {
-        let isValid = true;
-        const newErrors: FormErrorInterface = {
-            name: '',
-            projectName: '',
-            isValid: false
-        };
-
-        if (!formData.name) {
-            newErrors.name = "Name is required";
-            isValid = false;
-        }
-
-        if (!formData.projectName) {
-            newErrors.projectName = "Project Name is required";
-            isValid = false;
-        }
-
-        setErrors({...newErrors, isValid});
-        return isValid;
-    };
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { name, value } = e.target;
         setFormData(prevData => ({...prevData, [name]: value}));
@@ -57,10 +38,11 @@ export const InscriptionForm = (): JSX.Element => {
 
     const submitForm = (e: React.SyntheticEvent): CreateAction | void => {
         e.preventDefault();
-        if(validateForm()) {
+        const validateErrors = validateForm(formData);
+        if(Object.keys(validateErrors).length === 0) {
             return dispatch(addProject({...formData, created: true}));
         }
-        return undefined;
+        return setErrors(validateErrors);
     };
 
     return (
