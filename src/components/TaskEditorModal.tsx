@@ -24,14 +24,6 @@ export const TaskEditorModal = (): JSX.Element => {
         setAppState({modifyState: false, taskData: undefined});
     };
 
-    const handleDeleteTask = (): void => {
-        dispatch(removeTask(taskDataContext));
-    };
-
-    const handleCancelEdit = () => {
-        setAppState({modifyState: false, taskData: undefined});
-    };
-
     return(
         <div className='TaskEditorModal flex absolute items-center justify-center w-full h-full'>
             <form onSubmit={handleModifyTask} className="flex justify-center flex-col rounded-md z-10 gap-4 border-gray-200 border-4 bg-white p-20 w-6/12">
@@ -39,8 +31,8 @@ export const TaskEditorModal = (): JSX.Element => {
                 <textarea defaultValue={taskData.body} name="body" onChange={handleChange} className=" border-4 rounded-md border-blue-200 w-full min-h-8"></textarea>
                 <div className='flex justify-center gap-4'>
                     <button type="submit" className='button border-gray-200 rounded-md border-4 p-2'>Save</button>
-                    <button onClick={handleDeleteTask} className='button border-gray-200 rounded-md border-4 p-2'>Delete</button>
-                    <button onClick={handleCancelEdit} className='border-gray-200 border-4'>Cancel</button>
+                    <button onClick={() => dispatch(removeTask(taskDataContext))} className='button border-gray-200 rounded-md border-4 p-2'>Delete</button>
+                    <button onClick={() => setAppState({modifyState: false, taskData: undefined})} className='border-gray-200 border-4'>Cancel</button>
                 </div>
             </form>
             <div className="absolute bg-gray-500 opacity-50 z-0 h-screen w-full"></div>
