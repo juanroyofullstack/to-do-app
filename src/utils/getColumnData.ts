@@ -1,11 +1,11 @@
 import { ColumnNames,COLUMNS } from './utils';
 
 interface ColumnData {
-    column: string;
-    tasks: ITasks[];
+    title: string;
+    identifier: string;
 }
 
-export function getColumnData (column: string) {
+export function getColumnData (column: string): ColumnData | string {
     switch (column) {
     case ColumnNames.toDo:
         return COLUMNS[ColumnNames.toDo];

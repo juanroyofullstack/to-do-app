@@ -14,6 +14,7 @@ function useModifyContext () {
         throw new Error('no context');
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [modifyState, setModifyState]: any = context;
     return [modifyState, setModifyState];
 
