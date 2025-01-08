@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { store } from './store/index';
 import App from './App';
 
-import './style.css';
+import './index.css';
 
 const container = document.getElementById('root');
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
