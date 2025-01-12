@@ -7,8 +7,6 @@ import  { useDragAndDrop } from '../hooks/useDragAndDrop';
 import type { RootState } from '../store/index';
 import { useModifyContext } from '../utils/getContext';
 
-import './BoardContainer.scss';
-
 export const BoardContainer = (): JSX.Element => {
     const { name, projectName } = useSelector((state: RootState) => state.project);
     const selectData: DataStateInitial = useSelector((state: RootState) => state.data);
@@ -18,13 +16,13 @@ export const BoardContainer = (): JSX.Element => {
     const { modifyState } = appState;
 
     return (
-        <div className='BoardContainer flex'>
+        <div className='BoardContainer flex flex-col'>
             {modifyState && <TaskEditorModal />}
             <div className="p-2">
                 <h1 className="text-4xl font-medium">Welcome {name}</h1>
                 <h2 className="text-2xl font-medium">{projectName}</h2>
             </div>
-            <div className='BoardContainer-container flex'>
+            <div className='BoardContainer-container w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4'>
                 {Object.entries(selectData).map(([identifier, value]: [string, ITasks[]], i: number) => (
                     <TaskContainer
                         key={i}

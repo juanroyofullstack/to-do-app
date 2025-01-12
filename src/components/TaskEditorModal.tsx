@@ -26,13 +26,13 @@ export const TaskEditorModal = (): JSX.Element => {
 
     return(
         <div className='TaskEditorModal flex absolute items-center justify-center w-full h-full'>
-            <form onSubmit={handleModifyTask} className="flex justify-center flex-col rounded-md z-10 gap-4 border-gray-200 border-4 bg-white p-20 w-6/12">
-                <input defaultValue={taskData.title} name="title" onChange={handleChange} className="border-4 rounded-md border-blue-200 w-full"></input>
-                <textarea defaultValue={taskData.body} name="body" onChange={handleChange} className=" border-4 rounded-md border-blue-200 w-full min-h-8"></textarea>
+            <form onSubmit={handleModifyTask} className="flex justify-center flex-col rounded-md z-10 gap-4 border-gray-200 bg-white p-20 w-6/12">
+                <input defaultValue={taskData.title} name="title" onChange={handleChange} className="rounded-md w-full shadow-md p-2"></input>
+                <textarea defaultValue={taskData.body} name="body" onChange={handleChange} className="rounded-md w-full min-h-8 shadow-md p-2"></textarea>
                 <div className='flex justify-center gap-4'>
-                    <button type="submit" className='button border-gray-200 rounded-md border-4 p-2'>Save</button>
-                    <button onClick={() => dispatch(removeTask(taskDataContext))} className='button border-gray-200 rounded-md border-4 p-2'>Delete</button>
-                    <button onClick={() => setAppState({modifyState: false, taskData: undefined})} className='border-gray-200 border-4'>Cancel</button>
+                    <button type="submit" className='button bg-slate-200 rounded-md shadow-md p-2'>Save</button>
+                    <button onClick={() => dispatch(removeTask(taskDataContext))} className='button bg-slate-200 rounded-md shadow-md p-2'>Delete</button>
+                    <button onClick={() => setAppState({modifyState: false, taskData: undefined})} className='button rounded-md bg-slate-200 shadow-md p-2'>Cancel</button>
                 </div>
             </form>
             <div className="absolute bg-gray-500 opacity-50 z-0 h-screen w-full"></div>

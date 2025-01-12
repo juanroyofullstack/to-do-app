@@ -48,20 +48,20 @@ export const InscriptionForm = (): JSX.Element => {
     return (
         <div className="InscriptionForm">
             <form onSubmit={submitForm}>
-                <h1>Hi! enter your name and project name to start</h1>
+                <h1 className="text-3xl text-center">Hi! enter your name and project name to start</h1>
                 <label htmlFor="name">Name</label>
-                <input id="name" name="name" onChange={handleChange}/>
+                <input className="w-full" id="name" name="name"  onChange={handleChange}/>
 
                 {errors.name &&
                 <div className="error">{errors.name}</div>}
 
                 <label htmlFor="projectName">Project Name</label>
-                <input id="projectName" name="projectName"  onChange={handleChange}/>
+                <input className="w-full" id="projectName" name="projectName" onChange={handleChange}/>
 
                 {errors.projectName &&
                 <div className="error">{errors.projectName}</div>}
 
-                <button type="submit">Create Project</button>
+                <button className="bg-slate-200 w-fit" type="submit">Create Project</button>
             </form>
         </div>
     );

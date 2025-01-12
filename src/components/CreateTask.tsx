@@ -22,10 +22,10 @@ export const CreateTask = ({ column }: {column: string}): JSX.Element => {
         setFormData((prevData: CreateTaskInterface) => ({...prevData, [name]: value}));
     };
 
-    const submitForm = (e: React.SyntheticEvent): TaskAction => {
+    const submitForm = (e: React.SyntheticEvent): void => {
         e.preventDefault();
         setDidTheUserClicked(!didTheUserClicked);
-        return dispatch(addTask({...formData, column: column}));
+        dispatch(addTask({...formData, column: column}));
     };
 
     return (
@@ -34,12 +34,16 @@ export const CreateTask = ({ column }: {column: string}): JSX.Element => {
                 <form onSubmit={submitForm} className="CreateTask">
                     <input name="title" placeholder="Your task title" onChange={handleChange}/>
                     <textarea name="body" placeholder="Write your task description here" onChange={handleChange} />
-                    <button type="submit">Create Task</button>
-                    <button onClick={() => setDidTheUserClicked(prevValue => !prevValue)}>Cancel</button>
+                    <button type="submit">
+                        Create Task
+                    </button>
+                    <button onClick={() => setDidTheUserClicked(prevValue => !prevValue)}>
+                        Cancel
+                    </button>
                 </form>
                 :
-                <button className='AddButton hover:bg-gray-200 text-black font-bold py-2 px-2 mt-4 rounded' onClick={() => setDidTheUserClicked(!didTheUserClicked)}>
-                Click here to add a task
+                <button className='AddButton hover:bg-gray-300 hover:shadow-md text-black text-sm py-2 px-2 mt-4 rounded' onClick={() => setDidTheUserClicked(!didTheUserClicked)}>
+                    Click here to add a task
                 </button>
             }
         </>
