@@ -20,6 +20,7 @@ export const Task = ({ task, handleDragging }: TaskInterface): JSX.Element => {
 
     return (
         <div
+            className="Task bg-slate-50 p-2 rounded-md"
             draggable
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}

@@ -31,7 +31,7 @@ export const TaskContainer = ({ data, identifier, handleDragging }: TaskColumnPr
     return (
         <div className={`Column Column-${title} text-lg font-semibold p-2`} onDrop={handleDrop} onDragOver={handleDragOver}>
             <h2>{title}</h2>
-            <div className='Column-box bg-slate-200 shadow-lg rounded-md p-2'>
+            <div className='Column-box bg-slate-200 shadow-lg rounded-md p-2 flex flex-col gap-2'>
                 {data.map((task, i) => {
                     return (<Task key={i} task={task} handleDragging={handleDragging} />);
                 })}

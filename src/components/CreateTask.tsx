@@ -31,20 +31,25 @@ export const CreateTask = ({ column }: {column: string}): JSX.Element => {
     return (
         <>
             {didTheUserClicked ?
-                <form onSubmit={submitForm} className="CreateTask">
-                    <input name="title" placeholder="Your task title" onChange={handleChange}/>
-                    <textarea name="body" placeholder="Write your task description here" onChange={handleChange} />
-                    <button type="submit">
-                        Create Task
-                    </button>
-                    <button onClick={() => setDidTheUserClicked(prevValue => !prevValue)}>
+                <form onSubmit={submitForm} className="CreateTask flex flex-col pt-2 gap-2">
+                    <input className="rounded p-1" name="title" placeholder="Your task title" onChange={handleChange}/>
+                    <textarea className="rounded p-1" name="body" placeholder="Write your task description here" onChange={handleChange} />
+                    <div className="CreateTaskButtons flex gap-2 pt-2">
+                        <button className='hover:shadow-md hover:bg-gray-300 p-1 rounded' type="submit">
+                        Create
+                        </button>
+                        <button className='hover:shadow-md hover:bg-gray-300 p-1 rounded' type="button" onClick={() => setDidTheUserClicked(prevValue => !prevValue)}>
                         Cancel
-                    </button>
+                        </button>
+                    </div>
                 </form>
                 :
-                <button className='AddButton hover:bg-gray-300 hover:shadow-md text-black text-sm py-2 px-2 mt-4 rounded' onClick={() => setDidTheUserClicked(!didTheUserClicked)}>
-                    Click here to add a task
+                <button className='AddButton hover:bg-gray-300 hover:shadow-md text-black text-sm py-2 px-2 mt-4 rounded w-full flex justify-center' onClick={() => setDidTheUserClicked(!didTheUserClicked)}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
                 </button>
+
             }
         </>
     );
