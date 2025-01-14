@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addProject } from '../store/actionCreators';
 
 import { validateForm } from './../utils/index';
+import { CustomButton } from './CustomButton';
 
 import './InscriptionForm.scss';
 
@@ -59,9 +60,11 @@ export const InscriptionForm = (): JSX.Element => {
                 <input className="w-full" id="projectName" name="projectName" onChange={handleChange}/>
 
                 {errors.projectName &&
-                <div className="error">{errors.projectName}</div>}
+                <div className="error">
+                    {errors.projectName}
+                </div>}
 
-                <button className="bg-slate-200 w-fit" type="submit">Create Project</button>
+                <CustomButton title={'Create Project'} className="bg-slate-200 w-fit" type="submit"/>
             </form>
         </div>
     );

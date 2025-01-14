@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 
 import { addTask } from '../store/actionCreators';
 
+import { CustomButton } from './CustomButton';
+
 interface CreateTaskInterface {
     title: string;
     body: string;
@@ -35,12 +37,17 @@ export const CreateTask = ({ column }: {column: string}): JSX.Element => {
                     <input className="rounded p-1" name="title" placeholder="Your task title" onChange={handleChange}/>
                     <textarea className="rounded p-1" name="body" placeholder="Write your task description here" onChange={handleChange} />
                     <div className="CreateTaskButtons flex gap-2 pt-2">
-                        <button className='hover:shadow-md hover:bg-gray-300 p-1 rounded' type="submit">
-                        Create
-                        </button>
-                        <button className='hover:shadow-md hover:bg-gray-300 p-1 rounded' type="button" onClick={() => setDidTheUserClicked(prevValue => !prevValue)}>
-                        Cancel
-                        </button>
+                        <CustomButton
+                            title={'Create'}
+                            className='hover:shadow-md hover:bg-gray-300 p-1 rounded'
+                            type="submit"
+                        />
+                        <CustomButton
+                            title={'Cancel'}
+                            className='hover:shadow-md hover:bg-gray-300 p-1 rounded'
+                            type="button"
+                            onClick={() => setDidTheUserClicked(prevValue => !prevValue)}
+                        />
                     </div>
                 </form>
                 :
