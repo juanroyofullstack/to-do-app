@@ -32,6 +32,12 @@
       "@typescript-eslint/no-unused-vars": "warn",
       "@typescript-eslint/no-submodule-imports": "off",
       "@typescript-eslint/no-unused-expressions": "warn",
+      "@typescript-eslint/quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }],
       "@typescript-eslint/jsx-no-lambda": "off",
       "@typescript-eslint/prefer-interface": "off",
       "@typescript-eslint/interface-name-prefix": "off",

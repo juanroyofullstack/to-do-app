@@ -4,7 +4,7 @@ interface CustomButtonProps {
     title: string;
     className: string;
     onClick?: () => void;
-    type?: "button" | "submit" | "reset" | undefined;
+    type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
 export const CustomButton = ({title, className, onClick, type = 'button'}: CustomButtonProps) => {

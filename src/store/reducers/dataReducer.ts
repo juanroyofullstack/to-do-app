@@ -1,13 +1,13 @@
 import { ColumnNames } from '../../utils/index';
-import * as actionTypes from "../actionTypes";
+import * as actionTypes from '../actionTypes';
 
 const initialState: DataStateInitial = {
     toDo: [
         {
             id: 1,
-            title: "post 1",
+            title: 'post 1',
             body:
-        "Quisque cursus, metus vitae pharetra Nam libero tempore, cum soluta nobis est eligendi",
+        'Quisque cursus, metus vitae pharetra Nam libero tempore, cum soluta nobis est eligendi',
             column: 'toDo'
         }
     ],

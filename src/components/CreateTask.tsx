@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 
 import { addTask } from '../store/actionCreators';
 
@@ -39,7 +39,7 @@ export const CreateTask = ({ column }: {column: string}): JSX.Element => {
                     <div className="CreateTaskButtons flex gap-2 pt-2">
                         <CustomButton
                             title={'Create'}
-                            className='hover:shadow-md hover:bg-gray-300 p-1 rounded'
+                            className="hover:shadow-md hover:bg-gray-300 p-1 rounded"
                             type="submit"
                         />
                         <CustomButton

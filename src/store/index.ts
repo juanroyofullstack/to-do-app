@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { applyMiddleware, compose,legacy_createStore as createStore } from "redux";
-import thunk from "redux-thunk";
+import { applyMiddleware, compose,legacy_createStore as createStore } from 'redux';
+import thunk from 'redux-thunk';
 
 import { createProjectReducer } from './reducers/createProjectReducer';
 import { dataReducer } from './reducers/dataReducer';
