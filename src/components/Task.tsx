@@ -2,8 +2,6 @@ import React from 'react';
 
 import { useModifyContext } from '../utils/getContext';
 
-import { CustomButton } from './CustomButton';
-
 interface TaskInterface {
     task: ITasks;
     handleDragging: (dragging: boolean) => void;
@@ -26,6 +24,7 @@ export const Task = ({ task, handleDragging }: TaskInterface): JSX.Element => {
             draggable
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
+            onClick={()=> {setAppState({modifyState: true, taskData: task});}}
         >
             <h3 className='font-normal text-lg'>
                 {title}
@@ -33,7 +32,6 @@ export const Task = ({ task, handleDragging }: TaskInterface): JSX.Element => {
             <p className='font-normal text-base'>
                 {body}
             </p>
-            <CustomButton title={'Modify'} className='bg-blue-500 hover:bg-blue-700 text-white text-sm text-sm p-1 mt-2 rounded' onClick={()=> {setAppState({modifyState: true, taskData: task});}}/>
         </div>
     );
 };

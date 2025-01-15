@@ -16,7 +16,7 @@ export const BoardContainer = (): JSX.Element => {
     const { modifyState } = appState;
 
     return (
-        <div className='BoardContainer flex flex-col self-start'>
+        <div className='BoardContainer flex flex-col self-start w-full'>
             {modifyState && <TaskEditorModal />}
             <div className="p-2">
                 <h1 className="text-4xl font-medium">Welcome {name}</h1>
