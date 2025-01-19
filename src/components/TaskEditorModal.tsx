@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { editTask, removeTask } from '../store/actionCreators'
 import { useModifyContext } from '../utils/getContext'
 
-import { CustomButton } from './CustomButton'
+import { Button } from './Button'
 
 import './TaskEditorModal.scss'
 
@@ -51,17 +51,17 @@ export const TaskEditorModal = (): JSX.Element => {
 					className="rounded-md w-full min-h-8 shadow-md p-2"
 				></textarea>
 				<div className="flex justify-center gap-4">
-					<CustomButton
+					<Button
 						title={'Save'}
 						className="button bg-slate-200 rounded-md shadow-md p-2"
 						type="submit"
 					/>
-					<CustomButton
+					<Button
 						title={'Delete'}
 						className="button bg-slate-200 rounded-md shadow-md p-2"
 						onClick={() => handleDeleteTask()}
 					/>
-					<CustomButton
+					<Button
 						title={'Cancel'}
 						className="button bg-slate-200 rounded-md shadow-md p-2"
 						onClick={() =>

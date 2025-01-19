@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { addProject } from '../store/actionCreators'
 
 import { validateForm } from './../utils/index'
-import { CustomButton } from './CustomButton'
+import { Button } from './Button'
 
 import './InscriptionForm.scss'
 
@@ -74,7 +74,7 @@ export const InscriptionForm = (): JSX.Element => {
 					<div className="error">{errors.projectName}</div>
 				)}
 
-				<CustomButton
+				<Button
 					title={'Create Project'}
 					className="bg-slate-200 w-fit"
 					type="submit"

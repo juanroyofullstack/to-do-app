@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import { addTask } from '../store/actionCreators'
 
-import { CustomButton } from './CustomButton'
+import { Button } from './Button'
 
 interface CreateTaskInterface {
 	title: string
@@ -55,12 +55,12 @@ export const CreateTask = ({ column }: { column: string }): JSX.Element => {
 						onChange={handleChange}
 					/>
 					<div className="CreateTaskButtons flex gap-2 pt-2">
-						<CustomButton
+						<Button
 							title={'Create'}
 							className="hover:shadow-md hover:bg-gray-300 p-1 rounded"
 							type="submit"
 						/>
-						<CustomButton
+						<Button
 							title={'Cancel'}
 							className="hover:shadow-md hover:bg-gray-300 p-1 rounded"
 							type="button"

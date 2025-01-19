@@ -7,7 +7,7 @@ interface CustomButtonProps {
 	type?: 'button' | 'submit' | 'reset' | undefined
 }
 
-export const CustomButton = ({
+export const Button = ({
 	title,
 	className,
 	onClick,
