@@ -4,14 +4,12 @@ import { useSelector } from 'react-redux'
 import { TaskContainer } from '../components/TaskColumn'
 import { TaskEditorModal } from '../components/TaskEditorModal'
 import { useDragAndDrop } from '../hooks/useDragAndDrop'
-import type { RootState } from '../store/index'
+import { selectProject, selectProjectData } from '../selectors/selectors'
 import { useModifyContext } from '../utils/getContext'
 
 export const BoardContainer = (): JSX.Element => {
-	const { name, projectName } = useSelector((state: RootState) => state.project)
-	const selectData: DataStateInitial = useSelector(
-		(state: RootState) => state.data
-	)
+	const { name, projectName } = useSelector(selectProject)
+	const selectData: DataStateInitial = useSelector(selectProjectData)
 	const { handleDragging, isDragging } = useDragAndDrop()
 	const [appState] = useModifyContext()
 

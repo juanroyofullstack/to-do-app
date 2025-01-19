@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux'
 import {
 	applyMiddleware,
+	combineReducers,
 	compose,
 	legacy_createStore as createStore,
 } from 'redux'

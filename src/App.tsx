@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 
 import { BoardContainer } from './containers/BoardContainer'
-import type { RootState } from './store/index'
+import { selectProjectIsCreated } from './selectors/selectors'
 import { AppCreatedProvider } from './utils/getContext'
 
 const InscriptionFormLazyLoaded = React.lazy(() =>
@@ -12,9 +12,7 @@ const InscriptionFormLazyLoaded = React.lazy(() =>
 )
 
 function App(): JSX.Element {
-	const isProjectCreated = useSelector(
-		(state: RootState) => state.project.created
-	)
+	const isProjectCreated = useSelector(selectProjectIsCreated)
 
 	return (
 		<div
