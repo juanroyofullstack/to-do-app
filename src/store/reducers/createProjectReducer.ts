@@ -1,10 +1,10 @@
-import * as actionTypes from '../actionTypes'
+import * as actionTypes from '../actionTypes';
 
 const initialState: ICreateProject = {
 	name: '',
 	projectName: '',
 	created: false,
-}
+};
 
 export const createProjectReducer = (
 	state: ICreateProject = initialState,
@@ -15,7 +15,7 @@ export const createProjectReducer = (
 			return {
 				...state,
 				...action.payload,
-			}
+			};
 	}
-	return state
-}
+	return state;
+};

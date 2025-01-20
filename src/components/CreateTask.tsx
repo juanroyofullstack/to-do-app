@@ -1,39 +1,39 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { addTask } from '../store/actionCreators'
+import { addTask } from '../store/actionCreators';
 
-import { Button } from './Button'
+import { Button } from './Button';
 
 interface CreateTaskInterface {
-	title: string
-	body: string
+	title: string;
+	body: string;
 }
 
 export const CreateTask = ({ column }: { column: string }): JSX.Element => {
-	const [didTheUserClicked, setDidTheUserClicked] = useState<boolean>(false)
+	const [didTheUserClicked, setDidTheUserClicked] = useState<boolean>(false);
 	const [formData, setFormData] = useState<CreateTaskInterface>({
 		title: '',
 		body: '',
-	})
+	});
 
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	): void => {
-		const { name, value } = e.target
+		const { name, value } = e.target;
 		setFormData((prevData: CreateTaskInterface) => ({
 			...prevData,
 			[name]: value,
-		}))
-	}
+		}));
+	};
 
 	const submitForm = (e: React.SyntheticEvent): void => {
-		e.preventDefault()
-		setDidTheUserClicked(!didTheUserClicked)
-		dispatch(addTask({ ...formData, column: column }))
-	}
+		e.preventDefault();
+		setDidTheUserClicked(!didTheUserClicked);
+		dispatch(addTask({ ...formData, column: column }));
+	};
 
 	return (
 		<>
@@ -90,5 +90,5 @@ export const CreateTask = ({ column }: { column: string }): JSX.Element => {
 				</button>
 			)}
 		</>
-	)
-}
+	);
+};

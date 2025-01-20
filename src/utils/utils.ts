@@ -15,7 +15,7 @@ export const COLUMNS = {
 		title: 'Approved',
 		identifier: 'Approved',
 	},
-}
+};
 
 export enum ColumnNames {
 	toDo = 'toDo',

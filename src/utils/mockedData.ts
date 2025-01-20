@@ -37,4 +37,4 @@ export const initialState: DataStateInitial = {
 			column: 'Approved',
 		},
 	],
-}
+};

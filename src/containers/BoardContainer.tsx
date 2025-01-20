@@ -1,19 +1,19 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { TaskContainer } from '../components/TaskColumn'
-import { TaskEditorModal } from '../components/TaskEditorModal'
-import { useDragAndDrop } from '../hooks/useDragAndDrop'
-import { selectProject, selectProjectData } from '../selectors/selectors'
-import { useModifyContext } from '../utils/getContext'
+import { TaskContainer } from '../components/TaskColumn';
+import { TaskEditorModal } from '../components/TaskEditorModal';
+import { useDragAndDrop } from '../hooks/useDragAndDrop';
+import { selectProject, selectProjectData } from '../selectors/selectors';
+import { useModifyContext } from '../utils/getContext';
 
 export const BoardContainer = (): JSX.Element => {
-	const { name, projectName } = useSelector(selectProject)
-	const selectData: DataStateInitial = useSelector(selectProjectData)
-	const { handleDragging, isDragging } = useDragAndDrop()
-	const [appState] = useModifyContext()
+	const { name, projectName } = useSelector(selectProject);
+	const selectData: DataStateInitial = useSelector(selectProjectData);
+	const { handleDragging, isDragging } = useDragAndDrop();
+	const [appState] = useModifyContext();
 
-	const { modifyState } = appState
+	const { modifyState } = appState;
 
 	return (
 		<div className="BoardContainer flex flex-col self-start w-full">
@@ -36,5 +36,5 @@ export const BoardContainer = (): JSX.Element => {
 				)}
 			</div>
 		</div>
-	)
-}
+	);
+};

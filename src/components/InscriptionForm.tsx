@@ -1,53 +1,53 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { addProject } from '../store/actionCreators'
+import { addProject } from '../store/actionCreators';
 
-import { validateForm } from './../utils/index'
-import { Button } from './Button'
+import { validateForm } from './../utils/index';
+import { Button } from './Button';
 
-import './InscriptionForm.scss'
+import './InscriptionForm.scss';
 
 export interface WelcomeFormInterface {
-	name: string
-	projectName: string
+	name: string;
+	projectName: string;
 }
 
 export interface FormErrorInterface {
-	name?: string
-	projectName?: string
-	isValid?: boolean
+	name?: string;
+	projectName?: string;
+	isValid?: boolean;
 }
 
 export const InscriptionForm = (): JSX.Element => {
 	const [formData, setFormData] = useState<WelcomeFormInterface>({
 		name: '',
 		projectName: '',
-	})
+	});
 	const [errors, setErrors] = useState<FormErrorInterface>({
 		name: '',
 		projectName: '',
 		isValid: false,
-	})
+	});
 
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-		const { name, value } = e.target
-		setFormData(prevData => ({ ...prevData, [name]: value }))
-	}
+		const { name, value } = e.target;
+		setFormData(prevData => ({ ...prevData, [name]: value }));
+	};
 
 	const submitForm = (e: React.SyntheticEvent): CreateAction | void => {
-		e.preventDefault()
-		const validateErrors = validateForm(formData)
+		e.preventDefault();
+		const validateErrors = validateForm(formData);
 		if (Object.keys(validateErrors).length === 0) {
-			return dispatch(addProject({ ...formData, created: true }))
+			return dispatch(addProject({ ...formData, created: true }));
 		}
-		return setErrors(validateErrors)
-	}
+		return setErrors(validateErrors);
+	};
 
 	return (
-		<div className="InscriptionForm">
+		<div className="InscriptionForm" data-testid="InscriptionForm">
 			<form onSubmit={submitForm}>
 				<h1 className="text-3xl text-center">
 					Hi! enter your name and project name to start
@@ -81,5 +81,5 @@ export const InscriptionForm = (): JSX.Element => {
 				/>
 			</form>
 		</div>
-	)
-}
+	);
+};

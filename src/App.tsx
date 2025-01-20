@@ -1,18 +1,18 @@
-import * as React from 'react'
-import { useSelector } from 'react-redux'
+import * as React from 'react';
+import { useSelector } from 'react-redux';
 
-import { BoardContainer } from './containers/BoardContainer'
-import { selectProjectIsCreated } from './selectors/selectors'
-import { AppCreatedProvider } from './utils/getContext'
+import { BoardContainer } from './containers/BoardContainer';
+import { selectProjectIsCreated } from './selectors/selectors';
+import { AppCreatedProvider } from './utils/getContext';
 
 const InscriptionFormLazyLoaded = React.lazy(() =>
 	import('./components/InscriptionForm').then(module => ({
 		default: module.InscriptionForm,
 	}))
-)
+);
 
 function App(): JSX.Element {
-	const isProjectCreated = useSelector(selectProjectIsCreated)
+	const isProjectCreated = useSelector(selectProjectIsCreated);
 
 	return (
 		<div
@@ -30,7 +30,7 @@ function App(): JSX.Element {
 				)}
 			</AppCreatedProvider>
 		</div>
-	)
+	);
 }
 
-export default App
+export default App;

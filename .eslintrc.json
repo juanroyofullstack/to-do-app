@@ -44,7 +44,7 @@
       "@typescript-eslint/interface-name-prefix": "off",
       "prettier/prettier": [
         "error",
-        { "arrowParens": "avoid", "printWidth": 80, "semi": false, "singleQuote": true }
+        { "arrowParens": "avoid", "printWidth": 80, "singleQuote": true }
       ],
       "camelcase": "warn",
       "simple-import-sort/sort": [

@@ -1,39 +1,39 @@
 interface ICreateProject {
-	name: string
-	projectName: string
-	created: boolean
+	name: string;
+	projectName: string;
+	created: boolean;
 }
 
 interface ProjectState {
-	project: ICreateProject
+	project: ICreateProject;
 }
 
 interface CreateAction {
-	type: string
-	payload: ICreateProject
+	type: string;
+	payload: ICreateProject;
 }
 
 interface ITasks {
-	id?: number
-	title: string
-	body: string
-	column: string
+	id?: number;
+	title: string;
+	body: string;
+	column: string;
 }
 
 interface TasksState {
-	tasks: ITasks[]
+	tasks: ITasks[];
 }
 
 interface TaskAction {
-	type: string
-	payload: ITasks
+	type: string;
+	payload: ITasks;
 }
 
 interface DataStateInitial {
-	toDo: ITasks[]
-	inProgress: ITasks[]
-	inReview: ITasks[]
-	Approved: ITasks[]
+	toDo: ITasks[];
+	inProgress: ITasks[];
+	inReview: ITasks[];
+	Approved: ITasks[];
 }
 
-type DispatchType = (args: ITasks) => TaskAction
+type DispatchType = (args: ITasks) => TaskAction;
