@@ -8,16 +8,27 @@ import App from './App';
 
 const mockStore = configureStore();
 const store = mockStore({
-	project: { created: true },
+	project: { name: '', projectName: '', created: false },
 	data: initialState,
 });
 
-test('renders learn react link', () => {
-	const { container } = render(
-		<Provider store={store}>
+const customRender = (customStore = store) => {
+	return render(
+		<Provider store={customStore}>
 			<App />
 		</Provider>
 	);
-	const linkElement = container.getByTestId(/App/i);
-	expect(linkElement).toBeTruthy();
+};
+
+describe('App', () => {
+	test('should render html parent div on render', () => {
+		const { getByTestId } = customRender();
+		const linkElement = getByTestId(/App/i);
+		expect(linkElement).toBeTruthy();
+	});
+	test('should render incription form when project is not created', () => {
+		const { getByTestId } = customRender();
+		const linkElement = getByTestId(/InscriptionForm/i);
+		expect(linkElement).toBeTruthy();
+	});
 });
