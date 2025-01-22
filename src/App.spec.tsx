@@ -7,14 +7,15 @@ import { initialState } from './utils/index';
 import App from './App';
 
 const mockStore = configureStore();
-const store = mockStore({
-	project: { name: '', projectName: '', created: false },
+const mockStoreData = {
 	data: initialState,
-});
+	project: { name: '', projectName: '', created: false },
+};
 
-const customRender = (customStore = store) => {
+const customRender = (customStore = mockStoreData) => {
+	const store = mockStore(customStore);
 	return render(
-		<Provider store={customStore}>
+		<Provider store={store}>
 			<App />
 		</Provider>
 	);
@@ -29,6 +30,14 @@ describe('App', () => {
 	test('should render incription form when project is not created', () => {
 		const { getByTestId } = customRender();
 		const linkElement = getByTestId(/InscriptionForm/i);
+		expect(linkElement).toBeTruthy();
+	});
+	test('should render the board form when project is created', () => {
+		const { getByTestId } = customRender({
+			data: initialState,
+			project: { name: 'John Doe', projectName: 'Test Boarx', created: true },
+		});
+		const linkElement = getByTestId(/BoardContainer/i);
 		expect(linkElement).toBeTruthy();
 	});
 });
