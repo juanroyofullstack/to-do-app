@@ -1,14 +1,18 @@
 import * as React from 'react';
 
-const CreatedProjectContext = React.createContext<
-	| [
-			{ modifyState: boolean; taskData?: ITasks },
-			React.Dispatch<
-				React.SetStateAction<{ modifyState: boolean; taskData?: ITasks }>
-			>
-	  ]
-	| { modifyState: boolean; taskData?: ITasks }
->({ modifyState: false, taskData: undefined });
+interface ContextValue {
+	modifyState: boolean;
+	taskData?: ITasks;
+}
+
+type ContextType = [
+	ContextValue,
+	React.Dispatch<React.SetStateAction<ContextValue>>
+];
+
+const CreatedProjectContext = React.createContext<ContextType | undefined>(
+	undefined
+);
 
 type Props = {
 	children: string | JSX.Element | JSX.Element[];
@@ -20,9 +24,7 @@ function useModifyContext() {
 		throw new Error('no context');
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const [modifyState, setModifyState]: any = context;
-	return [modifyState, setModifyState];
+	return context;
 }
 
 function AppCreatedProvider(props: Props) {

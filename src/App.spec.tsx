@@ -16,28 +16,25 @@ const customRender = (customStore = mockStoreData) => {
 	const store = mockStore(customStore);
 	return render(
 		<Provider store={store}>
-			<App />
+			¡ <App />
 		</Provider>
 	);
 };
 
 describe('App', () => {
-	test('should render html parent div on render', () => {
+	test('should render incription form when project is not created', async () => {
 		const { getByTestId } = customRender();
-		const linkElement = getByTestId(/App/i);
-		expect(linkElement).toBeTruthy();
+		const inscriptionForm = await getByTestId('InscriptionForm');
+
+		expect(inscriptionForm).toBeTruthy();
 	});
-	test('should render incription form when project is not created', () => {
-		const { getByTestId } = customRender();
-		const linkElement = getByTestId(/InscriptionForm/i);
-		expect(linkElement).toBeTruthy();
-	});
+
 	test('should render the board form when project is created', () => {
 		const { getByTestId } = customRender({
 			data: initialState,
-			project: { name: 'John Doe', projectName: 'Test Boarx', created: true },
+			project: { name: 'John Doe', projectName: 'Test Board', created: true },
 		});
-		const linkElement = getByTestId(/BoardContainer/i);
-		expect(linkElement).toBeTruthy();
+
+		expect(getByTestId('BoardContainer')).toBeTruthy();
 	});
 });

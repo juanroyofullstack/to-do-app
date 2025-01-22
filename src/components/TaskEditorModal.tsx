@@ -11,7 +11,9 @@ import './TaskEditorModal.scss';
 export const TaskEditorModal = (): JSX.Element => {
 	const [appState, setAppState] = useModifyContext();
 	const { taskData: taskDataContext } = appState;
-	const [taskData, setTaskData] = useState<ITasks>(taskDataContext);
+	const [taskData, setTaskData] = useState<ITasks>(
+		taskDataContext ?? { title: '', body: '', column: '' }
+	);
 
 	const dispatch = useDispatch();
 
@@ -19,16 +21,20 @@ export const TaskEditorModal = (): JSX.Element => {
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	): void => {
 		const { name, value } = e.target;
-		setTaskData(prevData => ({ ...prevData, [name]: value }));
+		setTaskData(prevData => ({ ...prevData!, [name]: value }));
 	};
 
 	const handleModifyTask = (e: React.SyntheticEvent): void => {
 		e.preventDefault();
-		dispatch(editTask(taskData));
+		if (taskData) {
+			dispatch(editTask(taskData));
+		}
 		setAppState({ modifyState: false, taskData: undefined });
 	};
 	const handleDeleteTask = (): void => {
-		dispatch(removeTask(taskDataContext));
+		if (taskDataContext) {
+			dispatch(removeTask(taskDataContext));
+		}
 		setAppState({ modifyState: false, taskData: undefined });
 	};
 
