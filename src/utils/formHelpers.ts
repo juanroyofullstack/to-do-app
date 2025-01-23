@@ -3,16 +3,17 @@ import {
 	WelcomeFormInterface,
 } from './../components/InscriptionForm';
 
-export const validateForm = (
-	formData: WelcomeFormInterface
-): FormErrorInterface => {
+export const validateForm = ({
+	name,
+	projectName,
+}: WelcomeFormInterface): FormErrorInterface => {
 	const newErrors: FormErrorInterface = {};
 
-	if (!formData.name) {
+	if (!name) {
 		newErrors.name = 'Name is required';
 	}
 
-	if (!formData.projectName) {
+	if (!projectName) {
 		newErrors.projectName = 'Project Name is required';
 	}
 
