@@ -26,9 +26,8 @@ export const TaskEditorModal = (): JSX.Element => {
 
 	const handleModifyTask = (e: React.SyntheticEvent): void => {
 		e.preventDefault();
-		if (taskData) {
-			dispatch(editTask(taskData));
-		}
+
+		dispatch(editTask(taskData));
 		setAppState({ modifyState: false, taskData: undefined });
 	};
 	const handleDeleteTask = (): void => {
