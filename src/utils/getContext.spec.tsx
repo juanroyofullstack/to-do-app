@@ -10,12 +10,13 @@ const wrapper = ({
 }) => <AppCreatedProvider>{children}</AppCreatedProvider>;
 
 describe('useModifyContext', () => {
-	it('should throw an error if used outside of AppCreatedProvider', () => {
+	test('should throw an error if used outside of AppCreatedProvider', () => {
 		const { result } = renderHook(() => useModifyContext());
+
 		expect(result.error).toEqual(Error('no context'));
 	});
 
-	it('should provide the default context value', () => {
+	test('should provide the default context value', () => {
 		const { result } = renderHook(() => useModifyContext(), { wrapper });
 
 		expect(result.current[0]).toEqual({
@@ -24,7 +25,7 @@ describe('useModifyContext', () => {
 		});
 	});
 
-	it('should update the context value', () => {
+	test('should update the context value', () => {
 		const { result } = renderHook(() => useModifyContext(), { wrapper });
 
 		act(() => {

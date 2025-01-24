@@ -9,7 +9,7 @@ const initialState = {
 };
 
 describe('createProjectReducer', () => {
-	it('should return the initial state', () => {
+	test('should return the initial state', () => {
 		expect(
 			createProjectReducer(undefined, {
 				type: '',
@@ -17,7 +17,7 @@ describe('createProjectReducer', () => {
 		).toEqual(initialState);
 	});
 
-	it('should handle CREATE_PROJECT', () => {
+	test('should handle CREATE_PROJECT', () => {
 		const action = {
 			type: actionTypes.CREATE_PROJECT,
 			payload: {

@@ -16,7 +16,7 @@ const customRender = (customStore = mockStoreData) => {
 	const store = mockStore(customStore);
 	return render(
 		<Provider store={store}>
-			¡ <App />
+			<App />
 		</Provider>
 	);
 };

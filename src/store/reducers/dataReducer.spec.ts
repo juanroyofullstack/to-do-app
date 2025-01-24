@@ -17,11 +17,11 @@ const initialState = {
 };
 
 describe('dataReducer', () => {
-	it('should return the initial state', () => {
+	test('should return the initial state', () => {
 		expect(dataReducer(undefined, {} as TaskAction)).toEqual(initialState);
 	});
 
-	it('should handle ADD_TASK', () => {
+	test('should handle ADD_TASK', () => {
 		const action = {
 			type: actionTypes.ADD_TASK,
 			payload: {
@@ -40,7 +40,7 @@ describe('dataReducer', () => {
 		});
 	});
 
-	it('should handle MODIFY_TASK', () => {
+	test('should handle MODIFY_TASK', () => {
 		const action = {
 			type: actionTypes.MODIFY_TASK,
 			payload: {
@@ -60,7 +60,7 @@ describe('dataReducer', () => {
 		});
 	});
 
-	it('should handle REMOVE_TASK', () => {
+	test('should handle REMOVE_TASK', () => {
 		const action = {
 			type: actionTypes.REMOVE_TASK,
 			payload: {
