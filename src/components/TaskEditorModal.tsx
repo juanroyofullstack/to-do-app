@@ -38,7 +38,10 @@ export const TaskEditorModal = (): JSX.Element => {
 	};
 
 	return (
-		<div className="TaskEditorModal flex absolute items-center justify-center w-full h-full">
+		<div
+			className="TaskEditorModal flex absolute items-center justify-center w-full h-full"
+			data-testid="TaskEditorModal"
+		>
 			<form
 				onSubmit={handleModifyTask}
 				className="flex justify-center flex-col rounded-md z-10 gap-4 border-gray-200 bg-white p-20 w-6/12"

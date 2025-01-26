@@ -16,6 +16,7 @@ const jestConfig: JestConfigWithTsJest = {
 	moduleNameMapper: {
 		'\\.(scss|less)$': '<rootDir>/styleMock.js',
 	},
+	setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
 	verbose: true,
 };
 

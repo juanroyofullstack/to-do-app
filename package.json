@@ -45,7 +45,7 @@
     "@babel/preset-typescript": "^7.26.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
-    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/react-hooks": "^7.0.0",
     "@testing-library/user-event": "^7.1.2",
     "@types/babel__core": "^7.1.18",
     "@types/babel__traverse": "7.14.2",
