@@ -12,7 +12,7 @@ export const BoardContainer = (): JSX.Element => {
 	const selectData: DataStateInitial = useSelector(selectProjectData);
 	const { handleDragging, isDragging } = useDragAndDrop();
 	const [appState] = useModifyContext();
-	console.log(appState);
+
 	const { modifyState } = appState;
 
 	return (
