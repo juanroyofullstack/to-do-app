@@ -41,17 +41,20 @@ export const CreateTask = ({ column }: { column: string }): JSX.Element => {
 				<form
 					onSubmit={submitForm}
 					className="CreateTask flex flex-col pt-2 gap-2"
+					data-testid="CreateTask"
 				>
 					<input
 						className="rounded p-1"
 						name="title"
 						placeholder="Your task title"
+						aria-label="name-input"
 						onChange={handleChange}
 					/>
 					<textarea
 						className="rounded p-1"
 						name="body"
 						placeholder="Write your task description here"
+						aria-label="body-textarea"
 						onChange={handleChange}
 					/>
 					<div className="CreateTaskButtons flex gap-2 pt-2">
@@ -71,6 +74,7 @@ export const CreateTask = ({ column }: { column: string }): JSX.Element => {
 			) : (
 				<button
 					className="AddButton hover:bg-gray-300 hover:shadow-md text-black text-sm py-2 px-2 mt-4 rounded w-full flex justify-center"
+					data-testid="AddButton"
 					onClick={() => setDidTheUserClicked(!didTheUserClicked)}
 				>
 					<svg
