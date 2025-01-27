@@ -18,7 +18,12 @@ export const Button = ({
 	};
 
 	return (
-		<button onClick={onClickAction} className={className} type={type}>
+		<button
+			onClick={onClickAction}
+			className={className}
+			type={type}
+			data-testid="Button"
+		>
 			{title}
 		</button>
 	);

@@ -3,18 +3,20 @@ import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 
-import { AppCreatedProvider } from '../utils/getContext';
+import { useModifyContext } from '../utils/getContext';
 import { initialState } from '../utils/index';
 
 import { BoardContainer } from './BoardContainer';
+
+jest.mock('../utils/getContext', () => ({
+	useModifyContext: jest.fn(),
+}));
 
 const customRender = (customStore = mockStoreData) => {
 	const store = mockStore(customStore);
 	return render(
 		<Provider store={store}>
-			<AppCreatedProvider>
-				<BoardContainer />
-			</AppCreatedProvider>
+			<BoardContainer />
 		</Provider>
 	);
 };
@@ -26,28 +28,40 @@ const mockStoreData = {
 };
 
 describe('BoardContainer', () => {
+	beforeEach(() => {
+		(useModifyContext as jest.Mock).mockImplementation(() => {
+			return [{ modifyState: false }, () => {}];
+		});
+	});
+
 	test('should render BoardContainer', () => {
 		const { getByTestId } = customRender();
 		const boardContainer = getByTestId('BoardContainer');
+		const nameElement = getByTestId('NameTestId');
+		const projectNameContainer = getByTestId('ProjectNameTestId');
+
+		expect(nameElement).toBeInTheDocument();
+		expect(projectNameContainer).toBeInTheDocument();
 		expect(boardContainer).toBeInTheDocument();
-	});
-
-	test('should render the name and the project name', () => {
-		const { getByTestId } = customRender();
-		const NameElement = getByTestId('NameTestId');
-		const ProjectNameContainer = getByTestId('ProjectNameTestId');
-
-		expect(NameElement).toBeInTheDocument();
-		expect(ProjectNameContainer).toBeInTheDocument();
 	});
 
 	test('should render the BoardContainer-container and the four columns', () => {
 		const { getByTestId } = customRender();
-		const BoardContainerContainerElement = getByTestId(
+		const boardContainerContainerElement = getByTestId(
 			'BoardContainer-container'
 		);
 
-		expect(BoardContainerContainerElement).toBeInTheDocument();
-		expect(BoardContainerContainerElement.children.length).toBe(4);
+		expect(boardContainerContainerElement).toBeInTheDocument();
+		expect(boardContainerContainerElement.children.length).toBe(4);
+	});
+
+	test('should render the TaskModaModifier if modifyState is true', () => {
+		(useModifyContext as jest.Mock).mockImplementation(() => {
+			return [{ modifyState: true }, () => {}];
+		});
+		const { getByTestId } = customRender();
+		const taskEditorModalElement = getByTestId('TaskEditorModal');
+
+		expect(taskEditorModalElement).toBeInTheDocument();
 	});
 });
