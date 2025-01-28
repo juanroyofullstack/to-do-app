@@ -57,21 +57,29 @@ export const InscriptionForm = (): JSX.Element => {
 					className="w-full"
 					id="name"
 					name="name"
+					aria-label="name-input"
 					onChange={handleChange}
 				/>
 
-				{errors.name && <div className="error">{errors.name}</div>}
+				{errors.name && (
+					<span className="error" data-testid="errorName">
+						{errors.name}
+					</span>
+				)}
 
 				<label htmlFor="projectName">Project Name</label>
 				<input
 					className="w-full"
 					id="projectName"
 					name="projectName"
+					aria-label="project-input"
 					onChange={handleChange}
 				/>
 
 				{errors.projectName && (
-					<div className="error">{errors.projectName}</div>
+					<span className="error" data-testid="errorProjectName">
+						{errors.projectName}
+					</span>
 				)}
 
 				<Button

@@ -4,7 +4,11 @@ const jestConfig: JestConfigWithTsJest = {
 	collectCoverage: false,
 	collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/index.ts'],
 	coverageDirectory: 'coverage',
-	coveragePathIgnorePatterns: ['/node_modules/', '<rootDir>/src/index.tsx'],
+	coveragePathIgnorePatterns: [
+		'/node_modules/',
+		'<rootDir>/src/index.tsx',
+		'<rootDir>/src/reportWebVitals.js',
+	],
 	testEnvironment: 'jsdom',
 	transformIgnorePatterns: ['<rootDir>/node_modules/'],
 	roots: ['<rootDir>'],

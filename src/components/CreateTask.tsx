@@ -47,7 +47,7 @@ export const CreateTask = ({ column }: { column: string }): JSX.Element => {
 						className="rounded p-1"
 						name="title"
 						placeholder="Your task title"
-						aria-label="name-input"
+						aria-label="title-input"
 						onChange={handleChange}
 					/>
 					<textarea

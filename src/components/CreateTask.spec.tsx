@@ -38,7 +38,7 @@ describe('CreateTask', () => {
 
 		fireEvent.click(getByTestId('AddButton'));
 
-		const input = getByLabelText('name-input') as HTMLInputElement;
+		const input = getByLabelText('title-input') as HTMLInputElement;
 		const body = getByLabelText('body-textarea') as HTMLInputElement;
 
 		fireEvent.change(input, { target: { value: 'Pepito' } });
