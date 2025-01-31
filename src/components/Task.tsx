@@ -28,8 +28,12 @@ export const Task = ({ task, handleDragging }: TaskInterface): JSX.Element => {
 				setAppState({ modifyState: true, taskData: task });
 			}}
 		>
-			<h3 className="font-normal text-lg">{title}</h3>
-			<p className="font-normal text-base">{body}</p>
+			<h3 className="font-normal text-lg" aria-label="title">
+				{title}
+			</h3>
+			<p className="font-normal text-base" aria-label="body">
+				{body}
+			</p>
 		</div>
 	);
 };
