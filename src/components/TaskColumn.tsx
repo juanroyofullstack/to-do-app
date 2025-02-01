@@ -8,7 +8,7 @@ import { Task } from './Task';
 
 import './TaskColumn.scss';
 
-interface TaskColumnProps {
+export interface TaskColumnProps {
 	data: ITasks[];
 	identifier: string;
 	isDragging: boolean;
@@ -38,6 +38,7 @@ export const TaskContainer = ({
 			className={`Column Column-${title} text-lg font-semibold p-2`}
 			onDrop={handleDrop}
 			onDragOver={handleDragOver}
+			data-testid="Column"
 		>
 			<h2>{title}</h2>
 			<div className="Column-box bg-slate-200 shadow-lg rounded-md p-2 flex flex-col gap-2">
